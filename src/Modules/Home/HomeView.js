@@ -14,6 +14,9 @@ const HomeView = React.createClass({
   increment() {
     this.props.dispatch(HomeState.increment());
   },
+  decrement() {
+    this.props.dispatch(HomeState.decrement());
+  },
   reset() {
     this.props.dispatch(HomeState.reset());
   },
@@ -29,6 +32,12 @@ const HomeView = React.createClass({
           style={[styles.counterButton, loadingStyle]}>
           <Text style={styles.counter}>
             {this.props.counter}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.decrement}>
+          <Text style={styles.linkButton}>
+            Decrease
           </Text>
         </TouchableOpacity>
 
