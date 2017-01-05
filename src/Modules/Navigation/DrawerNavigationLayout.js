@@ -42,7 +42,7 @@ export default class DrawerNavigationLayout extends Component {
   render() {
     return (
       <DrawerNavigation
-        drawerPosition="right"
+        drawerPosition="left"
         renderHeader={this._renderHeader}
         drawerWidth={300}
         initialItem="home">

@@ -2,12 +2,12 @@ import {
   createRouter,
 } from '@exponent/ex-navigation';
 
-import HomeScreen from '../Home/HomeScreen';
+import HomeViewContainer from '../Home/HomeViewContainer';
 import AboutScreen from '../About/AboutScreen';
 import DrawerNavigationLayout from './DrawerNavigationLayout';
 
 export const Router = createRouter(() => ({
-  home: () => HomeScreen,
+  home: () => HomeViewContainer,
   about: () => AboutScreen,
   drawerNavigationLayout: () => DrawerNavigationLayout,
 }));
