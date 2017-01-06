@@ -1,3 +1,4 @@
+import 'rxjs/Rx';
 import React from 'react';
 import { StatusBar, AppRegistry } from 'react-native';
 import {Provider} from 'react-redux';

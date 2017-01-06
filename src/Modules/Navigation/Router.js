@@ -3,11 +3,11 @@ import {
 } from '@exponent/ex-navigation';
 
 import HomeViewContainer from '../Home/HomeViewContainer';
-import AboutScreen from '../About/AboutScreen';
+import AboutViewContainer from '../About/AboutViewContainer';
 import DrawerNavigationLayout from './DrawerNavigationLayout';
 
 export const Router = createRouter(() => ({
   home: () => HomeViewContainer,
-  about: () => AboutScreen,
-  drawerNavigationLayout: () => DrawerNavigationLayout,
+  about: () => AboutViewContainer,
+  drawerNavigationLayout: () => DrawerNavigationLayout
 }));
