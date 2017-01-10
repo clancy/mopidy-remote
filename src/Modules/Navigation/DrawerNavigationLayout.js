@@ -63,12 +63,18 @@ export default class DrawerNavigationLayout extends Component {
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
-          id="another"
+          id="about"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle('About', isSelected)}
           renderIcon={isSelected => this._renderIcon('telegram', isSelected)}>
           <StackNavigation
-            id="about"
+            id="root"
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: '#0084FF',
+                tintColor: '#fff',
+              },
+            }}
             initialRoute={Router.getRoute('about')}
           />
         </DrawerNavigationItem>

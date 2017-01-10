@@ -34,7 +34,7 @@ const AboutView = React.createClass({
         <TouchableOpacity
           onPress={this.ping}
           style={[styles.pingButton, pingingStyle]}>
-          <Text>Ping</Text>
+          <Text>{this.props.isPinging ? 'Pinging' : 'Ping'}</Text>
         </TouchableOpacity>
       </View>
     );

@@ -8,7 +8,7 @@ const initialState = Map({
 const PING = 'AboutState/PING';
 const PONG = 'AboutState/PONG';
 
-export function ping(user) {
+export function ping() {
   return {
     type: PING
   };
