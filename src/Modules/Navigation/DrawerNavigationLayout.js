@@ -57,6 +57,7 @@ export default class DrawerNavigationLayout extends Component {
               navigationBar: {
                 backgroundColor: '#0084FF',
                 tintColor: '#fff',
+                title: 'Home'
               },
             }}
             initialRoute={Router.getRoute('home')}
@@ -73,6 +74,7 @@ export default class DrawerNavigationLayout extends Component {
               navigationBar: {
                 backgroundColor: '#0084FF',
                 tintColor: '#fff',
+                title: 'About'
               },
             }}
             initialRoute={Router.getRoute('about')}

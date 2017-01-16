@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import HomeStateReducer from '../Modules/Home/HomeState';
 import AboutStateReducer from '../Modules/About/AboutState';
 import loggerMiddleware from './middleware/loggerMiddleware';
-import {pingEpic} from '../Modules/About/AboutState';
+import { connectEpic, connectedEpic, getCurrentTrackEpic } from '../Modules/About/AboutState';
 import { createEpicMiddleware } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
 
@@ -12,7 +12,9 @@ const reducers = {
 };
 
 const rootEpic = combineEpics(
-  pingEpic
+  connectEpic,
+  connectedEpic,
+  getCurrentTrackEpic
 );
 
 const epicMiddleware = createEpicMiddleware(rootEpic);

@@ -1,31 +1,75 @@
 import {Map} from 'immutable';
+import Rx from 'rxjs/Rx'
+import * as Mopidy from '../../utils/MopidyService';
 
 // Initial state
 const initialState = Map({
-  isPinging: false
+  connected: false,
+  currentTrack: '',
 });
 
-const PING = 'AboutState/PING';
-const PONG = 'AboutState/PONG';
+const CONNECT = 'AboutState/CONNECT';
+const CONNECTED = 'AboutState/CONNECTED';
+const GET_CURRENT_TRACK = 'AboutState/GET_CURRENT_TRACK';
+const RECEIVED_CURRENT_TRACK = 'AboutState/RECEIVED_CURRENT_TRACK';
 
-export function ping() {
+export function connect(webSocketUrl) {
   return {
-    type: PING
+    type: CONNECT,
+    payload: {
+      webSocketUrl
+    }
   };
 }
 
-export const pingEpic = action$ =>
-  action$.ofType(PING)
-    .delay(1000) // Asynchronously wait 1000ms then continue
-    .mapTo({ type: PONG });
+function connected() {
+  return {
+    type: CONNECTED
+  };
+}
+
+function getCurrentTrack() {
+  return {
+    type: GET_CURRENT_TRACK
+  };
+}
+
+export function receivedCurrentTrack(currentTrack) {
+  return {
+    type: RECEIVED_CURRENT_TRACK,
+    payload: {
+      currentTrack
+    }
+  };
+}
+
+export const connectEpic = action$ =>
+  action$.ofType(CONNECT)
+         .map(action => action.payload.webSocketUrl)
+         .switchMap(webSocketUrl =>
+           Rx.Observable.fromPromise(
+             Mopidy.connect(webSocketUrl))
+                   .map(connected));
+
+export const connectedEpic = action$ =>
+  action$.ofType(CONNECTED)
+         .map(getCurrentTrack);
+
+export const getCurrentTrackEpic = action$ =>
+  action$.ofType(GET_CURRENT_TRACK)
+         .switchMap(() =>
+          Rx.Observable.fromPromise(
+           Mopidy.getCurrentTrack())
+                 .map(track => track.name)
+                 .map(receivedCurrentTrack));
 
 export default function AboutStateReducer(state = initialState, action) {
   switch (action.type) {
-    case PING:
-      return state.update('isPinging', v => true);
+    case CONNECTED:
+      return state.update('connected', v => true);
 
-    case PONG:
-      return state.update('isPinging', v => false);
+    case RECEIVED_CURRENT_TRACK:
+      return state.update('currentTrack', v => action.payload.currentTrack);
 
     default:
       return state;

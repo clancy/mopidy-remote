@@ -9,58 +9,32 @@ import {
 } from 'react-native';
 
 const AboutView = React.createClass({
-  route: {
-    navigationBar: {
-      title: 'About',
-      tintColor: "#000",
-    },
-  },
 
   propTypes: {
-    isPinging: PropTypes.bool.isRequired
+    connected: PropTypes.bool.isRequired,
+    currentTrack: PropTypes.string
   },
 
-  ping() {
-    this.props.dispatch(AboutState.ping());
+  connect() {
+    this.props.dispatch(AboutState.connect('ws://192.168.0.32:6680/mopidy/ws/'));
   },
   render() {
-    const pingingStyle = this.props.isPinging
-      ? {backgroundColor: 'green'}
-      : {backgroundColor: 'blue'};
     return (
       <View style={styles.container}>
-        <Text>About Screnn</Text>
-        <StatusBar barStyle="default" />
-        <TouchableOpacity
-          onPress={this.ping}
-          style={[styles.pingButton, pingingStyle]}>
-          <Text>{this.props.isPinging ? 'Pinging' : 'Ping'}</Text>
+        <TouchableOpacity onPress={this.connect}>
+          <Text>Connect</Text>
         </TouchableOpacity>
+        <Text>{ this.props.currentTrack }</Text>
       </View>
     );
   }
 });
-
-const circle = {
-  borderWidth: 0,
-  borderRadius: 40,
-  width: 80,
-  height: 80
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
-  },
-  pingButton: {
-    ...circle,
-    backgroundColor: 'green',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20
   }
 });
 

@@ -3,7 +3,8 @@ import AboutView from './AboutView';
 
 const mapStateToProps = (state) => {
   return {
-    isPinging: state.about.get('isPinging')
+    connected: state.about.get('connected'),
+    currentTrack: state.about.get('currentTrack')
   }
 }
 
