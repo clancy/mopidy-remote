@@ -45,7 +45,7 @@ export default class DrawerNavigationLayout extends Component {
         drawerPosition="left"
         renderHeader={this._renderHeader}
         drawerWidth={300}
-        initialItem="home">
+        initialItem="currentTrack">
         <DrawerNavigationItem
           id="home"
           selectedStyle={styles.selectedItemStyle}
@@ -78,6 +78,23 @@ export default class DrawerNavigationLayout extends Component {
               },
             }}
             initialRoute={Router.getRoute('about')}
+          />
+        </DrawerNavigationItem>
+        <DrawerNavigationItem
+          id="currentTrack"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('Current Track', isSelected)}
+          renderIcon={isSelected => this._renderIcon('telegram', isSelected)}>
+          <StackNavigation
+            id="root"
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: 'black',
+                tintColor: 'white',
+                title: 'Current Track'
+              },
+            }}
+            initialRoute={Router.getRoute('currentTrack')}
           />
         </DrawerNavigationItem>
       </DrawerNavigation>
