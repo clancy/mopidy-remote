@@ -15,8 +15,10 @@ const padZero = (num, size) => {
 export default Progress = React.createClass({
   propTypes: {
     length: PropTypes.number,
-    position: PropTypes.number
+    position: PropTypes.number,
+    paused: PropTypes.bool.isRequired
   },
+
   getTrackProgress: (length, position) => {
     return position / length;
   },
@@ -31,19 +33,50 @@ export default Progress = React.createClass({
     var minutes = x % 60
     return `${minutes}:${padZero(seconds,2)}`
   },
+  getInitialState: function() {
+    return {
+      position: 0
+    };
+  },
+  tick: function() {
+    this.setState({position: this.state.position + 1000});
+    if (this.state.position >= this.props.length) {
+      clearInterval(this.interval);
+    }
+  },
+  componentDidMount: function() {
+    this.setState({ position: this.props.position });
+    if(!this.props.paused){
+      clearInterval(this.interval);
+      this.interval = setInterval(this.tick, 1000);
+    }
+  },
+  componentWillReceiveProps(nextProps) {
+    if(this.props == nextProps){
+      return;
+    }
+    this.setState({ position: nextProps.position });
+    if(!nextProps.paused){
+      clearInterval(this.interval);
+      this.interval = setInterval(this.tick, 1000);
+    }
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
   render() {
     return (
       <View style={styles.container} >
         <View style={styles.timeContainer}>
-          <Text style={styles.timeText}>{this.msToMinAndSec(this.props.position)}</Text>
+          <Text style={styles.timeText}>{this.msToMinAndSec(this.state.position)}</Text>
         </View>
         <ProgressViewIOS
           style={styles.progressView}
-          progress={this.getTrackProgress(this.props.length, this.props.position)}
+          progress={this.getTrackProgress(this.props.length, this.state.position)}
           progressTintColor='green'/>
-          <View style={styles.timeContainer}>
-            <Text style={styles.timeText}>{this.msToMinAndSec(this.props.length)}</Text>
-          </View>
+        <View style={styles.timeContainer}>
+          <Text style={styles.timeText}>{this.msToMinAndSec(this.props.length)}</Text>
+        </View>
       </View>
     );
   }

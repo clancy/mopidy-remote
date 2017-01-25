@@ -32,7 +32,7 @@ const CurrentTrackView = React.createClass({
       <View style={styles.container}>
         <AlbumArt albumArtUri={this.props.albumArtUri}/>
         <TrackInfo inLibrary={this.props.inLibrary} trackName={this.props.trackName} artists={this.props.artists}/>
-        <Progress length={this.props.length} position={this.props.position}/>
+        <Progress paused={this.props.paused} length={this.props.length} position={this.props.position}/>
         <Controls paused={this.props.paused} shuffle={this.props.shuffle} repeat={this.props.repeat} />
       </View>
     );
