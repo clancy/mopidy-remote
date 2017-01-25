@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import * as CurrentTrackState from './CurrentTrackState';
 import ControlsView from './Controls'
 import ProgressView from './Progress'
 import TrackInfo from './TrackInfo'
 import AlbumArt from './AlbumArt'
+import * as MopidyActions from '../Mopidy/Actions'
 import {
   View,
   StyleSheet
@@ -11,13 +11,29 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const CurrentTrackView = React.createClass({
+  propTypes: {
+    length: PropTypes.number,
+    position: PropTypes.number.isRequired,
+    paused: PropTypes.bool.isRequired,
+    shuffle: PropTypes.bool.isRequired,
+    repeat: PropTypes.bool.isRequired,
+    inLibrary: PropTypes.bool.isRequired,
+    trackName: PropTypes.string,
+    artists: PropTypes.arrayOf(React.PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })),
+    albumArtUri: PropTypes.string.isRequired
+  },
+  componentWillMount() {
+    this.props.dispatch(MopidyActions.connect('ws://192.168.0.30:6680/mopidy/ws/'));
+  },
   render() {
     return (
       <View style={styles.container}>
-        <AlbumArt albumArtUri={'https://i.scdn.co/image/2809893505162b55132370f3171fdc92128e28f0'}/>
-        <TrackInfo inLibrary={true}/>
-        <Progress length={300000.0} position={200000.0}/>
-        <Controls isPaused={true} shuffle={false} repeat={false} />
+        <AlbumArt albumArtUri={this.props.albumArtUri}/>
+        <TrackInfo inLibrary={this.props.inLibrary} trackName={this.props.trackName} artists={this.props.artists}/>
+        <Progress length={this.props.length} position={this.props.position}/>
+        <Controls paused={this.props.paused} shuffle={this.props.shuffle} repeat={this.props.repeat} />
       </View>
     );
   }

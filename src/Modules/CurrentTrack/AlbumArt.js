@@ -20,7 +20,9 @@ export default TrackInfo = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.albumArtImage} source={{uri: 'https://i.scdn.co/image/2809893505162b55132370f3171fdc92128e28f0' }}/>
+        <Image
+          style={styles.albumArtImage}
+          source={{uri: this.albumArtUri }}/>
       </View>
     );
   }

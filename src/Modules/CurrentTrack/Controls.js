@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const playIconName = isPaused => isPaused ? 'play-arrow' : 'pause';
+const playIconName = paused => paused ? 'play-arrow' : 'pause';
 const iconStyle = enabled => {
   return {
       marginLeft: 10,
@@ -16,7 +16,7 @@ const iconStyle = enabled => {
 
 export default Controls = React.createClass({
   propTypes: {
-    isPaused: PropTypes.bool.isRequired,
+    paused: PropTypes.bool.isRequired,
     shuffle: PropTypes.bool.isRequired,
     repeat: PropTypes.bool.isRequired
   },
@@ -26,7 +26,7 @@ export default Controls = React.createClass({
         <Icon name='shuffle' size={25} style={iconStyle(this.props.shuffle)} />
         <Icon name='skip-previous' size={35} style={iconStyle()} />
         <View style={styles.playIconContainer}>
-          <Icon name={playIconName(this.props.isPaused)} size={50} style={styles.playIcon} />
+          <Icon name={playIconName(this.props.paused)} size={50} style={styles.playIcon} />
         </View>
         <Icon name='skip-next' size={35} style={iconStyle()}/>
         <Icon name='repeat' size={25} style={iconStyle(this.props.repeat)}/>

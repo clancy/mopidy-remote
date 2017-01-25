@@ -14,7 +14,11 @@ const iconStyle = enabled => {
 
 export default TrackInfo = React.createClass({
   propTypes: {
-    inLibrary: PropTypes.bool.isRequired
+    inLibrary: PropTypes.bool.isRequired,
+    trackName: PropTypes.string,
+    artists: PropTypes.arrayOf(React.PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })).isRequired
   },
   render() {
     return (
@@ -23,8 +27,8 @@ export default TrackInfo = React.createClass({
           <Icon style={iconStyle(this.props.inLibrary)} name='done' size={35} />
         </View>
         <View style={styles.trackTextView}>
-          <Text style={styles.trackNameText}>Talisman</Text>
-          <Text style={styles.albumText}>Air</Text>
+          <Text style={styles.trackNameText}>{this.props.trackName}</Text>
+          <Text style={styles.artistText}>{this.props.artists.map(a => a.name).join(', ')}</Text>
         </View>
         <View style={styles.iconContainer}>
           <Icon style={iconStyle()}  name='more-vert' size={35} />
@@ -51,7 +55,7 @@ var styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold'
   },
-  albumText: {
+  artistText: {
     color: 'white'
   },
   trackTextView: {

@@ -14,14 +14,17 @@ const padZero = (num, size) => {
 
 export default Progress = React.createClass({
   propTypes: {
-    length: PropTypes.number.isRequired,
-    position: PropTypes.number.isRequired
+    length: PropTypes.number,
+    position: PropTypes.number
   },
   getTrackProgress: (length, position) => {
     return position / length;
   },
 
   msToMinAndSec: (ms) => {
+    if(ms === undefined){
+      return '0:00'
+    }
     var x = Math.trunc(ms / 1000)
     var seconds = x % 60
     x = Math.trunc(x / 60)
