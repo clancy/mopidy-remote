@@ -46,8 +46,9 @@ export default Progress = React.createClass({
   },
   componentDidMount: function() {
     this.setState({ position: this.props.position });
+
+    clearInterval(this.interval);
     if(!this.props.paused){
-      clearInterval(this.interval);
       this.interval = setInterval(this.tick, 1000);
     }
   },
@@ -56,8 +57,9 @@ export default Progress = React.createClass({
       return;
     }
     this.setState({ position: nextProps.position });
+    
+    clearInterval(this.interval);
     if(!nextProps.paused){
-      clearInterval(this.interval);
       this.interval = setInterval(this.tick, 1000);
     }
   },
