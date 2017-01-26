@@ -2,7 +2,7 @@ import * as MopidyActions from './Actions'
 import Rx from 'rxjs/Rx'
 import * as Mopidy from './Service'
 
-export const connectEpic = action$ =>
+const connectEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_CONNECT)
          .map(action => action.payload.webSocketUrl)
          .switchMap(webSocketUrl =>
@@ -10,11 +10,11 @@ export const connectEpic = action$ =>
              Mopidy.connect(webSocketUrl))
                    .map(MopidyActions.connected));
 
-export const connectedEpic = action$ =>
+const connectedEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_CONNECTED)
         .map(MopidyActions.getInitialState);
 
-export const getInitialStateEpic = action$ =>
+const getInitialStateEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_GET_INITIAL_STATE)
          .switchMap(action => Rx.Observable.forkJoin(
            Rx.Observable.fromPromise(Mopidy.getCurrentTrack()),
@@ -30,22 +30,34 @@ export const getInitialStateEpic = action$ =>
               MopidyActions.receiveRepeatStatus(arr[4])]
             ));
 
-export const playEpic = action$ =>
+const playEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PLAY)
         .do(action => Mopidy.play())
         .map(MopidyActions.nullAction);
 
-export const pauseEpic = action$ =>
+const pauseEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PAUSE)
         .do(action => Mopidy.pause())
         .map(MopidyActions.nullAction);
 
-export const nextTrackEpic = action$ =>
+const nextTrackEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_NEXT_TRACK)
         .do(() => Mopidy.nextTrack())
         .map(MopidyActions.nullAction);
 
-export const previousTrackEpic = action$ =>
+const previousTrackEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PREVIOUS_TRACK)
         .do(() => Mopidy.previousTrack())
         .map(MopidyActions.nullAction);
+
+const MopidyEpics = [
+  connectEpic,
+  connectedEpic,
+  getInitialStateEpic,
+  playEpic,
+  pauseEpic,
+  nextTrackEpic,
+  previousTrackEpic
+];
+
+export default MopidyEpics;
