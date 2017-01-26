@@ -8,12 +8,25 @@ export const MOPIDY_RECEIVE_SHUFFLE_STATUS = 'Mopidy/MOPIDY_RECEIVE_SHUFFLE_STAT
 export const MOPIDY_RECEIVE_REPEAT_STATUS = 'Mopidy/MOPIDY_RECEIVE_REPEAT_STATUS';
 export const MOPIDY_RECEIVE_TRACK_POSITION = 'Mopidy/MOPIDY_RECEIVE_TRACK_POSITION';
 
+export const MOPIDY_PLAY = 'Mopidy/MOPIDY_PLAY';
+export const MOPIDY_PAUSE = 'Mopidy/MOPIDY_PAUSE';
+export const MOPIDY_NEXT_TRACK = 'Mopidy/MOPIDY_NEXT_TRACK';
+export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
+
+export const NULL_ACTION = 'Mopidy/NULL_ACTION';
+
 export function connect(webSocketUrl) {
   return {
     type: MOPIDY_CONNECT,
     payload: {
       webSocketUrl
     }
+  };
+}
+
+export function nullAction() {
+  return {
+    type: NULL_ACTION
   };
 }
 
@@ -77,5 +90,29 @@ export function receiveTrackPosition(trackPosition) {
     payload: {
       trackPosition
     }
+  };
+}
+
+export function play() {
+  return {
+    type: MOPIDY_PLAY
+  };
+}
+
+export function pause() {
+  return {
+    type: MOPIDY_PAUSE
+  };
+}
+
+export function nextTrack() {
+  return {
+    type: MOPIDY_NEXT_TRACK
+  };
+}
+
+export function previousTrack() {
+  return {
+    type: MOPIDY_PREVIOUS_TRACK
   };
 }

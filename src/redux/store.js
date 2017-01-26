@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import HomeStateReducer from '../Modules/Home/HomeState';
 import MopidyReducer from '../Modules/Mopidy/Reducer';
 import loggerMiddleware from './middleware/loggerMiddleware';
-import { connectEpic, connectedEpic, getInitialStateEpic } from '../Modules/Mopidy/Epics';
+import { connectEpic, connectedEpic, getInitialStateEpic, playEpic, pauseEpic, nextTrackEpic, previousTrackEpic } from '../Modules/Mopidy/Epics';
 import { createEpicMiddleware } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
 
@@ -14,7 +14,11 @@ const reducers = {
 const rootEpic = combineEpics(
   connectEpic,
   connectedEpic,
-  getInitialStateEpic
+  getInitialStateEpic,
+  playEpic,
+  pauseEpic,
+  nextTrackEpic,
+  previousTrackEpic
 );
 
 const epicMiddleware = createEpicMiddleware(rootEpic);

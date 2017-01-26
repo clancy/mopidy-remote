@@ -40,43 +40,57 @@ function eventSupervisor(event, data){
   switch(event){
     case "event:trackPlaybackPaused":
         store.dispatch(MopidyActions.receiveTrackPosition(data.time_position));
-        store.dispatch(MopidyActions.receivePlaybackStatus("paused"));
       break;
     case "event:trackPlaybackResumed":
         store.dispatch(MopidyActions.receiveTrackPosition(data.time_position));
-        store.dispatch(MopidyActions.receivePlaybackStatus("playing"));
       break;
     case "event:trackPlaybackStarted":
-        store.dispatch(MopidyActions.receiveTrackPosition(0));
         store.dispatch(MopidyActions.receiveCurrentTrack(data.tl_track.track));
+        store.dispatch(MopidyActions.receiveTrackPosition(0));
+      break;
+    case "event:playbackStateChanged":
+        store.dispatch(MopidyActions.receivePlaybackStatus(data.new_state));
       break;
     case "event:seeked":
         store.dispatch(MopidyActions.receiveTrackPosition(data.time_position));
+    case "event:optionsChanged":
+        store.dispatch(MopidyActions.getInitialState());
       break;
   }
 }
 
 export function getCurrentTrack() {
-  var a = mopidy.playback.getCurrentTrack();
-  return a;
+  return mopidy.playback.getCurrentTrack();
 }
 
 export function getState() {
-  var a =  mopidy.playback.getState();
-  return a;
+  return mopidy.playback.getState();
+}
+
+export function play() {
+  mopidy.playback.play();
+}
+
+export function pause() {
+  mopidy.playback.pause();
+}
+
+export function nextTrack() {
+  mopidy.playback.next();
+}
+
+export function previousTrack() {
+  mopidy.playback.previous();
 }
 
 export function getRandom() {
-  var a =  mopidy.tracklist.getRandom();
-  return a;
+  return mopidy.tracklist.getRandom();
 }
 
 export function getRepeat() {
-  var a =  mopidy.tracklist.getRepeat();
-  return a;
+  return mopidy.tracklist.getRepeat();
 }
 
 export function getTimePosition() {
-  var a =  mopidy.playback.getTimePosition();
-  return a;
+  return mopidy.playback.getTimePosition();
 }

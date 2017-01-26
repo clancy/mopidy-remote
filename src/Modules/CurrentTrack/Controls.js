@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
@@ -18,18 +19,34 @@ export default Controls = React.createClass({
   propTypes: {
     paused: PropTypes.bool.isRequired,
     shuffle: PropTypes.bool.isRequired,
-    repeat: PropTypes.bool.isRequired
+    repeat: PropTypes.bool.isRequired,
+    playPause: PropTypes.func.isRequired,
+    previous: PropTypes.func.isRequired,
+    next: PropTypes.func.isRequired
   },
   render() {
     return (
       <View style={styles.container}>
-        <Icon name='shuffle' size={25} style={iconStyle(this.props.shuffle)} />
-        <Icon name='skip-previous' size={35} style={iconStyle()} />
+        <TouchableOpacity>
+          <Icon name='shuffle' size={25} style={iconStyle(this.props.shuffle)} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={this.props.previous} >
+          <Icon name='skip-previous' size={35} style={iconStyle()} />
+        </TouchableOpacity>
         <View style={styles.playIconContainer}>
-          <Icon name={playIconName(this.props.paused)} size={50} style={styles.playIcon} />
+          <TouchableOpacity
+            onPress={this.props.playPause} >
+            <Icon name={playIconName(this.props.paused)} size={50} style={styles.playIcon} />
+          </TouchableOpacity>
         </View>
-        <Icon name='skip-next' size={35} style={iconStyle()}/>
-        <Icon name='repeat' size={25} style={iconStyle(this.props.repeat)}/>
+        <TouchableOpacity
+          onPress={this.props.next}>
+          <Icon name='skip-next' size={35} style={iconStyle()}/>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon name='repeat' size={25} style={iconStyle(this.props.repeat)}/>
+        </TouchableOpacity>
       </View>
     );
   }

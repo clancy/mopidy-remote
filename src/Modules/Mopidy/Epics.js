@@ -29,3 +29,23 @@ export const getInitialStateEpic = action$ =>
               MopidyActions.receiveTrackPosition(arr[3]),
               MopidyActions.receiveRepeatStatus(arr[4])]
             ));
+
+export const playEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_PLAY)
+        .do(action => Mopidy.play())
+        .map(MopidyActions.nullAction);
+
+export const pauseEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_PAUSE)
+        .do(action => Mopidy.pause())
+        .map(MopidyActions.nullAction);
+
+export const nextTrackEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_NEXT_TRACK)
+        .do(() => Mopidy.nextTrack())
+        .map(MopidyActions.nullAction);
+
+export const previousTrackEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_PREVIOUS_TRACK)
+        .do(() => Mopidy.previousTrack())
+        .map(MopidyActions.nullAction);

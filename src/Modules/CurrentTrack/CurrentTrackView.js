@@ -27,13 +27,26 @@ const CurrentTrackView = React.createClass({
   componentWillMount() {
     this.props.dispatch(MopidyActions.connect('ws://192.168.0.30:6680/mopidy/ws/'));
   },
+  playPause() {
+    if(this.props.paused){
+      this.props.dispatch(MopidyActions.play());
+    } else {
+      this.props.dispatch(MopidyActions.pause());
+    }
+  },
+  previous() {
+    this.props.dispatch(MopidyActions.previousTrack());
+  },
+  next() {
+    this.props.dispatch(MopidyActions.nextTrack());
+  },
   render() {
     return (
       <View style={styles.container}>
         <AlbumArt albumArtUri={this.props.albumArtUri}/>
         <TrackInfo inLibrary={this.props.inLibrary} trackName={this.props.trackName} artists={this.props.artists}/>
         <Progress paused={this.props.paused} length={this.props.length} position={this.props.position}/>
-        <Controls paused={this.props.paused} shuffle={this.props.shuffle} repeat={this.props.repeat} />
+        <Controls previous={this.previous} next={this.next} playPause={this.playPause} paused={this.props.paused} shuffle={this.props.shuffle} repeat={this.props.repeat} />
       </View>
     );
   }
