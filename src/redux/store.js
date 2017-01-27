@@ -1,15 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import HomeStateReducer from '../Modules/Home/HomeState';
-import MopidyReducer from '../Modules/Mopidy/Reducer';
 import loggerMiddleware from './middleware/loggerMiddleware';
 import MopidyEpics from '../Modules/Mopidy/Epics';
 import { createEpicMiddleware } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
-
-const reducers = {
-  home: HomeStateReducer,
-  mopidy: MopidyReducer
-};
+import reducers from './reducers';
 
 const rootEpic = combineEpics(
   ...MopidyEpics

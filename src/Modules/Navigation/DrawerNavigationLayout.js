@@ -10,7 +10,7 @@ import {
   DrawerNavigation,
   DrawerNavigationItem,
 } from '@exponent/ex-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Router } from './Router';
 
 export default class DrawerNavigationLayout extends Component {
@@ -50,7 +50,7 @@ export default class DrawerNavigationLayout extends Component {
           id="home"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle('Home', isSelected)}
-          renderIcon={isSelected => this._renderIcon('bath', isSelected)}>
+          renderIcon={isSelected => this._renderIcon('home', isSelected)}>
           <StackNavigation
             id="root"
             defaultRouteConfig={{
@@ -64,10 +64,27 @@ export default class DrawerNavigationLayout extends Component {
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
+          id="settings"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
+          renderIcon={isSelected => this._renderIcon('settings', isSelected)}>
+          <StackNavigation
+            id="root"
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: '#0084FF',
+                tintColor: '#fff',
+                title: 'Home'
+              },
+            }}
+            initialRoute={Router.getRoute('settings')}
+          />
+        </DrawerNavigationItem>
+        <DrawerNavigationItem
           id="currentTrack"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle('Current Track', isSelected)}
-          renderIcon={isSelected => this._renderIcon('telegram', isSelected)}>
+          renderIcon={isSelected => this._renderIcon('album', isSelected)}>
           <StackNavigation
             id="root"
             defaultRouteConfig={{
