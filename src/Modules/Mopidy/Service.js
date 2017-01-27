@@ -91,6 +91,18 @@ export function getRepeat() {
   return mopidy.tracklist.getRepeat();
 }
 
+export function setRandom(enabled) {
+  mopidy.tracklist.setRandom({
+    value: enabled
+  });
+}
+
+export function setRepeat(enabled) {
+  mopidy.tracklist.setRepeat({
+    value: enabled
+  });
+}
+
 export function getTimePosition() {
   return mopidy.playback.getTimePosition();
 }

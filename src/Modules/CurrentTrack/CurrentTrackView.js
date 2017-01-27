@@ -14,9 +14,9 @@ const CurrentTrackView = React.createClass({
   propTypes: {
     length: PropTypes.number,
     position: PropTypes.number.isRequired,
-    paused: PropTypes.bool.isRequired,
-    shuffle: PropTypes.bool.isRequired,
-    repeat: PropTypes.bool.isRequired,
+    playing: PropTypes.bool.isRequired,
+    shuffleEnabled: PropTypes.bool.isRequired,
+    repeatEnabled: PropTypes.bool.isRequired,
     inLibrary: PropTypes.bool.isRequired,
     trackName: PropTypes.string,
     artists: PropTypes.arrayOf(React.PropTypes.shape({
@@ -28,10 +28,10 @@ const CurrentTrackView = React.createClass({
     this.props.dispatch(MopidyActions.connect('ws://192.168.0.30:6680/mopidy/ws/'));
   },
   playPause() {
-    if(this.props.paused){
-      this.props.dispatch(MopidyActions.play());
-    } else {
+    if(this.props.playing){
       this.props.dispatch(MopidyActions.pause());
+    } else {
+      this.props.dispatch(MopidyActions.play());
     }
   },
   previous() {
@@ -40,13 +40,27 @@ const CurrentTrackView = React.createClass({
   next() {
     this.props.dispatch(MopidyActions.nextTrack());
   },
+  shuffle() {
+    this.props.dispatch(MopidyActions.shuffle(!this.props.shuffleEnabled));
+  },
+  repeat() {
+    this.props.dispatch(MopidyActions.repeat(!this.props.repeatEnabled));
+  },
   render() {
     return (
       <View style={styles.container}>
         <AlbumArt albumArtUri={this.props.albumArtUri}/>
         <TrackInfo inLibrary={this.props.inLibrary} trackName={this.props.trackName} artists={this.props.artists}/>
-        <Progress paused={this.props.paused} length={this.props.length} position={this.props.position}/>
-        <Controls previous={this.previous} next={this.next} playPause={this.playPause} paused={this.props.paused} shuffle={this.props.shuffle} repeat={this.props.repeat} />
+        <Progress playing={this.props.playing} length={this.props.length} position={this.props.position}/>
+        <Controls
+          previous={this.previous}
+          next={this.next}
+          shuffle={this.shuffle}
+          repeat={this.repeat}
+          playPause={this.playPause}
+          playing={this.props.playing}
+          shuffleEnabled={this.props.shuffleEnabled}
+          repeatEnabled={this.props.repeatEnabled} />
       </View>
     );
   }

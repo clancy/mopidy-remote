@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const playIconName = paused => paused ? 'play-arrow' : 'pause';
+const playIconName = playing => playing ?  'pause' : 'play-arrow';
 const iconStyle = enabled => {
   return {
       marginLeft: 10,
@@ -17,18 +17,21 @@ const iconStyle = enabled => {
 
 export default Controls = React.createClass({
   propTypes: {
-    paused: PropTypes.bool.isRequired,
-    shuffle: PropTypes.bool.isRequired,
-    repeat: PropTypes.bool.isRequired,
+    playing: PropTypes.bool.isRequired,
+    shuffleEnabled: PropTypes.bool.isRequired,
+    repeatEnabled: PropTypes.bool.isRequired,
     playPause: PropTypes.func.isRequired,
     previous: PropTypes.func.isRequired,
-    next: PropTypes.func.isRequired
+    next: PropTypes.func.isRequired,
+    shuffle: PropTypes.func.isRequired,
+    repeat: PropTypes.func.isRequired
   },
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
-          <Icon name='shuffle' size={25} style={iconStyle(this.props.shuffle)} />
+        <TouchableOpacity
+          onPress={this.props.shuffle}>
+          <Icon name='shuffle' size={25} style={iconStyle(this.props.shuffleEnabled)} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={this.props.previous} >
@@ -37,15 +40,16 @@ export default Controls = React.createClass({
         <View style={styles.playIconContainer}>
           <TouchableOpacity
             onPress={this.props.playPause} >
-            <Icon name={playIconName(this.props.paused)} size={50} style={styles.playIcon} />
+            <Icon name={playIconName(this.props.playing)} size={50} style={styles.playIcon} />
           </TouchableOpacity>
         </View>
         <TouchableOpacity
           onPress={this.props.next}>
           <Icon name='skip-next' size={35} style={iconStyle()}/>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name='repeat' size={25} style={iconStyle(this.props.repeat)}/>
+        <TouchableOpacity
+          onPress={this.props.repeat}>
+          <Icon name='repeat' size={25} style={iconStyle(this.props.repeatEnabled)}/>
         </TouchableOpacity>
       </View>
     );

@@ -50,6 +50,16 @@ const previousTrackEpic = action$ =>
         .do(() => Mopidy.previousTrack())
         .map(MopidyActions.nullAction);
 
+const shuffleEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_SHUFFLE)
+        .do(action => Mopidy.setRandom(action.payload.enabled))
+        .map(MopidyActions.nullAction);
+
+const repeatEpic = action$ =>
+ action$.ofType(MopidyActions.MOPIDY_REPEAT)
+        .do(action => Mopidy.setRepeat(action.payload.enabled))
+        .map(MopidyActions.nullAction);
+
 const MopidyEpics = [
   connectEpic,
   connectedEpic,
@@ -57,7 +67,9 @@ const MopidyEpics = [
   playEpic,
   pauseEpic,
   nextTrackEpic,
-  previousTrackEpic
+  previousTrackEpic,
+  shuffleEpic,
+  repeatEpic
 ];
 
 export default MopidyEpics;

@@ -9,6 +9,8 @@ export const MOPIDY_RECEIVE_REPEAT_STATUS = 'Mopidy/MOPIDY_RECEIVE_REPEAT_STATUS
 export const MOPIDY_RECEIVE_TRACK_POSITION = 'Mopidy/MOPIDY_RECEIVE_TRACK_POSITION';
 
 export const MOPIDY_PLAY = 'Mopidy/MOPIDY_PLAY';
+export const MOPIDY_SHUFFLE = 'Mopidy/MOPIDY_SHUFFLE';
+export const MOPIDY_REPEAT = 'Mopidy/MOPIDY_REPEAT';
 export const MOPIDY_PAUSE = 'Mopidy/MOPIDY_PAUSE';
 export const MOPIDY_NEXT_TRACK = 'Mopidy/MOPIDY_NEXT_TRACK';
 export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
@@ -102,6 +104,24 @@ export function play() {
 export function pause() {
   return {
     type: MOPIDY_PAUSE
+  };
+}
+
+export function shuffle(enabled) {
+  return {
+    type: MOPIDY_SHUFFLE,
+    payload: {
+      enabled
+    }
+  };
+}
+
+export function repeat(enabled) {
+  return {
+    type: MOPIDY_REPEAT,
+    payload: {
+      enabled
+    }
   };
 }
 
