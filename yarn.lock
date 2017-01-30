@@ -1597,6 +1597,10 @@ find-up@^1.0.0, find-up@^1.1.2:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
+flow@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/flow/-/flow-0.2.3.tgz#f8da65efa249127ec99376a28896572a9795d1af"
+
 flux-standard-action@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/flux-standard-action/-/flux-standard-action-0.6.1.tgz#6f34211b94834ea1c3cc30f4e7afad3d0fbf71a2"
@@ -3985,7 +3989,7 @@ whatwg-url@^4.1.0:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
 
-when@3.7.2:
+when@3.7.2, when@~3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/when/-/when-3.7.2.tgz#06bed1296df3a0bfd83f7f31c5e1d779bd97eae8"
 

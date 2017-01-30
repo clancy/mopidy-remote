@@ -1,29 +1,60 @@
 import * as SettingsState from './SettingsState';
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
+import SpotifyRow from './SpotifyRow'
+import SettingsSectionHeader from './SettingsSectionHeader'
 
-const SettingsView = React.createClass({
-  propTypes: {
-  },
+class SettingsView extends Component {
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged : (s1, s2) => s1 !== s2
+    });
+
+    const configEntries = {
+      "Mopidy" : [{
+        text: "Connect to Mopidy",
+        onPress: () => alert("press")
+      }],
+      "Spotify" : [{
+          text: "Login to Spotify",
+          onPress: () => alert("press")
+        },
+        {
+            text: "Logged in to Spotify",
+            onPress: () => alert("press")
+          }
+      ]
+    }
+
+    this.state = {
+      dataSource: ds.cloneWithRowsAndSections(configEntries)
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Settings</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(data) => <SpotifyRow {...data} /> }
+          renderSectionHeader={(sectionData, sectionID) => <SettingsSectionHeader text={sectionID} />}
+        />
       </View>
     );
   }
-});
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'black'
   }
 });
 
