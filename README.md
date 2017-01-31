@@ -16,3 +16,6 @@ Carousel Component
 
 Animations
 * https://github.com/Nhacsam/myTvShows 
+
+Navigation
+* https://reactnavigation.org/docs/navigators/drawer
