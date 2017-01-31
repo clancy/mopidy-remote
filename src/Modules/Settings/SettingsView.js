@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import SpotifyRow from './SpotifyRow'
 import SettingsSectionHeader from './SettingsSectionHeader'
+import Router from '../Navigation/Router'
 
 class SettingsView extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class SettingsView extends Component {
     const configEntries = {
       "Mopidy" : [{
         text: "Connect to Mopidy",
-        onPress: () => alert("press")
+        onPress: () => goToMopidySettings()
       }],
       "Spotify" : [{
           text: "Login to Spotify",
@@ -31,6 +32,10 @@ class SettingsView extends Component {
             onPress: () => alert("press")
           }
       ]
+    }
+
+    var goToMopidySettings = () => {
+      this.props.navigator.push(Router.getRoute('mopidySettings'));
     }
 
     this.state = {

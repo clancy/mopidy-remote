@@ -11,7 +11,7 @@ import {
   DrawerNavigationItem,
 } from '@exponent/ex-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Router } from './Router';
+import Router from './Router';
 
 export default class DrawerNavigationLayout extends Component {
 
