@@ -19,3 +19,6 @@ Animations
 
 Navigation
 * https://reactnavigation.org/docs/navigators/drawer
+
+Redux listener pattern
+* https://community.risingstack.com/handling-outside-events-with-the-redux-listener-pattern/
