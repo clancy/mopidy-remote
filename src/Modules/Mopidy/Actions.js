@@ -17,11 +17,12 @@ export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
 
 export const NULL_ACTION = 'Mopidy/NULL_ACTION';
 
-export function connect(webSocketUrl) {
+export function connect(hostname, port) {
   return {
     type: MOPIDY_CONNECT,
     payload: {
-      webSocketUrl
+      hostname, 
+      port
     }
   };
 }

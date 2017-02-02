@@ -1,43 +1,58 @@
-import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
+import FormRow from './FormRow'
+import * as MopidyActions from '../../Mopidy/Actions'
 
-const MopidySettingsView = (props) => (
-  <View style={styles.container}>
-    <View style={styles.settingRow}>
-      <Text style={styles.text}>Host Name</Text>
-      <TextInput style={styles.textInput} />
-    </View>
-    <View style={styles.settingRow}>
-      <Text style={styles.text}>Port</Text>
-      <TextInput style={styles.textInput} />
-    </View>
-    <View style={styles.buttonRow}>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>CONNECT</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+export default class MopidySettingsView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hostName: props.hostName || '192.168.1.30',
+      port: props.port || '6680'
+    };
+  };
+  static propTypes = {
+    hostName: PropTypes.string,
+    port: PropTypes.number
+  };
+  connect = () => {
+    var hostName = this.state.hostName;
+    var port = this.state.port;
+    //TODO validate hostname and port
+    this.props.dispatch(MopidyActions.connect(hostName, port));
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <FormRow
+          label="Host Name"
+          value={this.state.hostName}
+          onChangeText={(hostName) => this.setState({hostName})} />
+        <FormRow
+          label="Port"
+          value={this.state.port}
+          onChangeText={(port) => this.setState({port})} />
+        <View style={styles.buttonRow}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.connect}>
+            <Text style={styles.buttonText}>CONNECT</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
-    flex: 1
-  },
-  settingRow: {
-    height: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 5
-  },
-  text: {
-    color: 'white',
-    width: 80
-  },
-  textInput: {
-    color: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
     flex: 1
   },
   buttonRow: {
@@ -59,5 +74,3 @@ const styles = StyleSheet.create({
     flex: .3
   },
 });
-
-export default MopidySettingsView;

@@ -24,9 +24,6 @@ const CurrentTrackView = React.createClass({
     })),
     albumArtUri: PropTypes.string.isRequired
   },
-  componentWillMount() {
-    this.props.dispatch(MopidyActions.connect('ws://192.168.0.30:6680/mopidy/ws/'));
-  },
   playPause() {
     if(this.props.playing){
       this.props.dispatch(MopidyActions.pause());

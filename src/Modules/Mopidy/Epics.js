@@ -4,7 +4,7 @@ import * as Mopidy from './Service'
 
 const connectEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_CONNECT)
-         .map(action => action.payload.webSocketUrl)
+         .map(action => `ws://${action.payload.hostname}:${action.payload.port}/mopidy/ws/`)
          .switchMap(webSocketUrl =>
            Rx.Observable.fromPromise(
              Mopidy.connect(webSocketUrl))
