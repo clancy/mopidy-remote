@@ -19,7 +19,7 @@ export default class MopidySettingsView extends Component {
   };
   static propTypes = {
     hostName: PropTypes.string,
-    port: PropTypes.number
+    port: PropTypes.string
   };
   connect = () => {
     var hostName = this.state.hostName;

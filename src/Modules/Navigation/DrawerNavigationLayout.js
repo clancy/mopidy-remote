@@ -45,7 +45,7 @@ export default class DrawerNavigationLayout extends Component {
         drawerPosition="left"
         renderHeader={this._renderHeader}
         drawerWidth={300}
-        initialItem="settings">
+        initialItem="currentTrack">
         <DrawerNavigationItem
           id="home"
           selectedStyle={styles.selectedItemStyle}
