@@ -2,6 +2,8 @@ import * as MopidyActions from './Actions'
 import Immutable, { Map } from 'immutable'
 
 initialState = Map({
+  hostname: null,
+  port: null,
   connected: false,
   ready: false,
   currentTrack: null,
@@ -14,25 +16,31 @@ initialState = Map({
 export default function MopidyReducer(state = initialState, action) {
   switch (action.type) {
     case MopidyActions.MOPIDY_CONNECT:
-      return state.update('connected', v => true);
+      return state.merge({
+        hostname: action.payload.hostname,
+        port: action.payload.port
+      });
+
+    case MopidyActions.MOPIDY_CONNECTED:
+      return state.set('connected', true);
 
     case MopidyActions.MOPIDY_READY:
-      return state.update('ready', v => true);
+      return state.set('ready', true);
 
     case MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK:
-      return state.update('currentTrack', v => Immutable.fromJS(action.payload.currentTrack));
+      return state.set('currentTrack', Immutable.fromJS(action.payload.currentTrack));
 
     case MopidyActions.MOPIDY_RECEIVE_PLAYBACK_STATUS:
-      return state.update('playbackStatus', v => action.payload.playbackStatus);
+      return state.set('playbackStatus', action.payload.playbackStatus);
 
     case MopidyActions.MOPIDY_RECEIVE_SHUFFLE_STATUS:
-      return state.update('shuffle', v => action.payload.shuffle);
+      return state.set('shuffle', action.payload.shuffle);
 
     case MopidyActions.MOPIDY_RECEIVE_REPEAT_STATUS:
-      return state.update('repeat', v => action.payload.repeat);
+      return state.set('repeat', action.payload.repeat);
 
     case MopidyActions.MOPIDY_RECEIVE_TRACK_POSITION:
-      return state.update('position', v => action.payload.trackPosition);
+      return state.set('position', action.payload.trackPosition);
 
     default:
       return state;

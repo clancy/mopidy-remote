@@ -13,8 +13,8 @@ export default class MopidySettingsView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hostName: props.hostName,
-      port: props.port
+      hostName: props.hostName || '192.168.1.30',
+      port: props.port || '6680'
     };
   };
   static propTypes = {
