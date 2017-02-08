@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
     inLibrary: false,
     trackName: state.mopidy.getIn(['currentTrack', 'name']),
     albumArtUri: 'https://i.scdn.co/image/2809893505162b55132370f3171fdc92128e28f0',
-    artists: artists ? artists.toJSON() : [],
-    length: state.mopidy.getIn(['currentTrack', 'length']),
+    artists: artists ? artists.toJSON() : []
   }
 }
 

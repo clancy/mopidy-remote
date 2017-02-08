@@ -1,4 +1,3 @@
-import * as SettingsState from './SettingsState';
 import React, {PropTypes, Component} from 'react';
 import {
   StyleSheet,
@@ -25,17 +24,16 @@ class SettingsView extends Component {
       }],
       "Spotify" : [{
           text: "Login to Spotify",
-          onPress: () => alert("press")
-        },
-        {
-            text: "Logged in to Spotify",
-            onPress: () => alert("press")
-          }
-      ]
+          onPress: () => goToSpotifyLogin()
+        }]
     }
 
     var goToMopidySettings = () => {
       this.props.navigator.push(Router.getRoute('mopidySettings'));
+    }
+
+    var goToSpotifyLogin = () => {
+      this.props.navigator.push(Router.getRoute('spotifyLogin'));
     }
 
     this.state = {
