@@ -1,7 +1,7 @@
 import * as MopidyActions from './Actions'
 import Immutable, { Map } from 'immutable'
 
-initialState = Map({
+const initialState = Map({
   hostname: null,
   port: null,
   connected: false,

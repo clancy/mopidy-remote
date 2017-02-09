@@ -3,8 +3,8 @@ import MopidySettingsView from './MopidySettingsView';
 
 const mapStateToProps = (state) => {
   return {
-    hostname: state.mopidy.get('hostname'),
-    port: state.mopidy.get('port')
+    hostname: state.settings.getIn(['mopidy', 'hostname']),
+    port: state.settings.getIn(['mopidy', 'port'])
   }
 }
 

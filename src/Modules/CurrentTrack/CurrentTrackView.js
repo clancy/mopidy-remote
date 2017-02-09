@@ -43,9 +43,6 @@ const CurrentTrackView = React.createClass({
   repeat() {
     this.props.dispatch(MopidyActions.repeat(!this.props.repeatEnabled));
   },
-  componentWillMount() {
-    this.props.dispatch(MopidyActions.connect('192.168.1.107', '6680'));
-  },
   render() {
     return (
       <View style={styles.container}>

@@ -13,27 +13,27 @@ export default class MopidySettingsView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hostName: props.hostName,
+      hostname: props.hostname,
       port: props.port
     };
   };
   static propTypes = {
-    hostName: PropTypes.string,
+    hostname: PropTypes.string,
     port: PropTypes.string
   };
   connect = () => {
-    var hostName = this.state.hostName;
+    var hostname = this.state.hostname;
     var port = this.state.port;
     //TODO validate hostname and port
-    this.props.dispatch(MopidyActions.connect(hostName, port));
+    this.props.dispatch(MopidyActions.connect(hostname, port));
   };
   render() {
     return (
       <View style={styles.container}>
         <FormRow
           label="Host Name"
-          value={this.state.hostName}
-          onChangeText={(hostName) => this.setState({hostName})} />
+          value={this.state.hostname}
+          onChangeText={(hostname) => this.setState({hostname})} />
         <FormRow
           label="Port"
           value={this.state.port}
