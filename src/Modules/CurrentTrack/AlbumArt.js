@@ -13,7 +13,7 @@ const iconStyle = enabled => {
   };
 };
 
-export default TrackInfo = React.createClass({
+export default AlbumArt = React.createClass({
   propTypes: {
     albumArtUri: PropTypes.string
   },
@@ -22,7 +22,7 @@ export default TrackInfo = React.createClass({
       <View style={styles.container}>
         <Image
           style={styles.albumArtImage}
-          source={{uri: this.albumArtUri }}/>
+          source={{uri: this.props.albumArtUri }}/>
       </View>
     );
   }

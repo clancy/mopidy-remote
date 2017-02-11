@@ -1,6 +1,17 @@
 import * as MopidyActions from './Actions'
 import Rx from 'rxjs/Rx'
 import * as Mopidy from './Service'
+import * as ReduxPersistConstants from 'redux-persist/constants'
+
+const rehydrateEpic = action$ =>
+ action$.ofType(ReduxPersistConstants.REHYDRATE)
+        .filter(action =>
+          action.payload.settings &&
+          action.payload.settings.getIn(['mopidy', 'hostname']) &&
+          action.payload.settings.getIn(['mopidy', 'port']))
+        .map(action => MopidyActions.connect(
+          action.payload.settings.getIn(['mopidy', 'hostname']),
+          action.payload.settings.getIn(['mopidy', 'port'])));
 
 const connectEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_CONNECT)
@@ -33,32 +44,32 @@ const getInitialStateEpic = action$ =>
 const playEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PLAY)
         .do(action => Mopidy.play())
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const pauseEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PAUSE)
         .do(action => Mopidy.pause())
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const nextTrackEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_NEXT_TRACK)
         .do(() => Mopidy.nextTrack())
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const previousTrackEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_PREVIOUS_TRACK)
         .do(() => Mopidy.previousTrack())
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const shuffleEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_SHUFFLE)
         .do(action => Mopidy.setRandom(action.payload.enabled))
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const repeatEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_REPEAT)
         .do(action => Mopidy.setRepeat(action.payload.enabled))
-        .map(MopidyActions.nullAction);
+        .skip();
 
 const MopidyEpics = [
   connectEpic,
@@ -69,7 +80,8 @@ const MopidyEpics = [
   nextTrackEpic,
   previousTrackEpic,
   shuffleEpic,
-  repeatEpic
+  repeatEpic,
+  rehydrateEpic
 ];
 
 export default MopidyEpics;

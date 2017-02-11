@@ -22,7 +22,7 @@ const CurrentTrackView = React.createClass({
     artists: PropTypes.arrayOf(React.PropTypes.shape({
       name: PropTypes.string.isRequired
     })),
-    albumArtUri: PropTypes.string.isRequired
+    albumArtUri: PropTypes.string
   },
   playPause() {
     if(this.props.playing){

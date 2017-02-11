@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@exponent/ex-navigation": "^2.7.0",
+    "apisauce": "^0.10.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "mopidy": "^0.5.0",
     "react": "~15.4.0-rc.4",
@@ -15,6 +16,8 @@
     "react-native-vector-icons": "^3.0.0",
     "redux-logger": "^2.7.4",
     "redux-observable": "^0.12.2",
+    "redux-persist": "^4.3.0",
+    "redux-persist-transform-immutable": "^4.2.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "rxjs": "^5.0.2",

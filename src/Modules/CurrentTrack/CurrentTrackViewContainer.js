@@ -2,8 +2,8 @@ import {connect} from 'react-redux';
 import CurrentTrackView from './CurrentTrackView';
 
 const mapStateToProps = (state) => {
-
   var artists = state.mopidy.getIn(['currentTrack', 'artists']);
+  var albumUri = state.mopidy.getIn(['currentTrack', 'album', 'uri'])
   return {
     length: state.mopidy.getIn(['currentTrack', 'length']),
     position: state.mopidy.get('position'),
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     repeatEnabled: state.mopidy.get('repeat'),
     inLibrary: false,
     trackName: state.mopidy.getIn(['currentTrack', 'name']),
-    albumArtUri: 'https://i.scdn.co/image/2809893505162b55132370f3171fdc92128e28f0',
+    albumArtUri: state.spotify.getIn(['image_index', albumUri]),
     artists: artists ? artists.toJSON() : []
   }
 }

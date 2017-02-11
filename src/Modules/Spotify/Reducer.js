@@ -1,10 +1,11 @@
 import * as SpotifyActions from './Actions'
-import Immutable, { Map } from 'immutable'
+import Immutable, { Map, Set } from 'immutable'
 
 const initialState = Map({
   connected: false,
   access_token: null,
-  refresh_token: null
+  refresh_token: null,
+  image_index: Map({})
 });
 
 export default function SpotifyReducer(state = initialState, action) {
@@ -15,7 +16,9 @@ export default function SpotifyReducer(state = initialState, action) {
         refresh_token: action.payload.refresh_token,
         connected: true
       });
-
+    case SpotifyActions.SPOTIFY_RECEIVE_TRACK:
+      var image300 = action.payload.currentTrack.album.images.find(i => i.height == 300);
+      return state.setIn(['image_index', action.payload.currentTrack.album.uri], image300.url)
     default:
       return state;
   }

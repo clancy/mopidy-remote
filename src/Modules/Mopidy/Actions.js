@@ -15,21 +15,13 @@ export const MOPIDY_PAUSE = 'Mopidy/MOPIDY_PAUSE';
 export const MOPIDY_NEXT_TRACK = 'Mopidy/MOPIDY_NEXT_TRACK';
 export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
 
-export const NULL_ACTION = 'Mopidy/NULL_ACTION';
-
 export function connect(hostname, port) {
   return {
     type: MOPIDY_CONNECT,
     payload: {
-      hostname, 
+      hostname,
       port
     }
-  };
-}
-
-export function nullAction() {
-  return {
-    type: NULL_ACTION
   };
 }
 
