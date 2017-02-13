@@ -11,9 +11,10 @@ const initialState = Map({
 export default function SpotifyReducer(state = initialState, action) {
   switch (action.type) {
     case SpotifyActions.SPOTIFY_CONNECTED:
+      var refreshToken = action.payload.refresh_token ? action.payload.refresh_token : state.get('refresh_token');
       return state.merge({
         access_token: action.payload.access_token,
-        refresh_token: action.payload.refresh_token,
+        refresh_token: refreshToken,
         connected: true
       });
     case SpotifyActions.SPOTIFY_RECEIVE_TRACK:

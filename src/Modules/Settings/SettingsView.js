@@ -6,6 +6,7 @@ import {
   ListView
 } from 'react-native';
 import SpotifyRow from './SpotifyRow'
+import * as SpotifyActions from '../Spotify/Actions'
 import SettingsSectionHeader from './SettingsSectionHeader'
 import Router from '../Navigation/Router'
 
@@ -25,11 +26,19 @@ class SettingsView extends Component {
       "Spotify" : [{
           text: "Login to Spotify",
           onPress: () => goToSpotifyLogin()
+        },
+        {
+          text: "Force refresh token",
+          onPress: () => forceRefreshToken()
         }]
     }
 
     var goToMopidySettings = () => {
       this.props.navigator.push(Router.getRoute('mopidySettings'));
+    }
+
+    var forceRefreshToken = () => {
+      this.props.dispatch(SpotifyActions.refreshToken());
     }
 
     var goToSpotifyLogin = () => {
