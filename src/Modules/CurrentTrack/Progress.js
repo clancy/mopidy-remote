@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -12,18 +13,18 @@ const padZero = (num, size) => {
   return s;
 };
 
-export default Progress = React.createClass({
+const Progress = React.createClass({
   propTypes: {
     length: PropTypes.number,
     position: PropTypes.number,
     playing: PropTypes.bool.isRequired
   },
 
-  getTrackProgress: (length, position) => {
+  getTrackProgress: (length: number, position: number) => {
     return position / length;
   },
 
-  msToMinAndSec: (ms) => {
+  msToMinAndSec: (ms: number) => {
     if(ms === undefined){
       return '0:00'
     }
@@ -104,3 +105,5 @@ var styles = StyleSheet.create({
     flex: 70
   }
 });
+
+export default Progress;

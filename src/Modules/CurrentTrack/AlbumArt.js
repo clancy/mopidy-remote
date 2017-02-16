@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -13,7 +14,7 @@ const iconStyle = enabled => {
   };
 };
 
-export default AlbumArt = React.createClass({
+const AlbumArt = React.createClass({
   propTypes: {
     albumArtUri: PropTypes.string
   },
@@ -37,3 +38,5 @@ const styles = StyleSheet.create({
     flex:1
   }
 });
+
+export default AlbumArt;

@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -12,7 +13,7 @@ const iconStyle = enabled => {
   };
 };
 
-export default TrackInfo = React.createClass({
+const TrackInfo = React.createClass({
   propTypes: {
     inLibrary: PropTypes.bool.isRequired,
     trackName: PropTypes.string,
@@ -64,3 +65,5 @@ var styles = StyleSheet.create({
     flex: 70
   }
 });
+
+export default TrackInfo;

@@ -1,3 +1,4 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -15,7 +16,7 @@ const iconStyle = enabled => {
   };
 };
 
-export default Controls = React.createClass({
+const Controls = React.createClass({
   propTypes: {
     playing: PropTypes.bool.isRequired,
     shuffleEnabled: PropTypes.bool.isRequired,
@@ -79,3 +80,5 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+export default Controls;

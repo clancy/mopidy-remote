@@ -1,6 +1,7 @@
+/* @flow */
 import React, { Component, PropTypes } from 'react';
-import ControlsView from './Controls'
-import ProgressView from './Progress'
+import Controls from './Controls'
+import Progress from './Progress'
 import TrackInfo from './TrackInfo'
 import AlbumArt from './AlbumArt'
 import * as MopidyActions from '../Mopidy/Actions'
