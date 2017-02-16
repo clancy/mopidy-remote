@@ -47,23 +47,6 @@ export default class DrawerNavigationLayout extends Component {
         drawerWidth={300}
         initialItem="settings">
         <DrawerNavigationItem
-          id="home"
-          selectedStyle={styles.selectedItemStyle}
-          renderTitle={isSelected => this._renderTitle('Home', isSelected)}
-          renderIcon={isSelected => this._renderIcon('home', isSelected)}>
-          <StackNavigation
-            id="root"
-            defaultRouteConfig={{
-              navigationBar: {
-                backgroundColor: '#0084FF',
-                tintColor: '#fff',
-                title: 'Home'
-              },
-            }}
-            initialRoute={Router.getRoute('home')}
-          />
-        </DrawerNavigationItem>
-        <DrawerNavigationItem
           id="settings"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
