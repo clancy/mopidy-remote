@@ -8,34 +8,30 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const iconStyle = enabled => {
-  return {
-      'color' : enabled ? 'green' : 'white'
-  };
-};
-
-const AlbumArt = React.createClass({
-  propTypes: {
-    albumArtUri: PropTypes.string
-  },
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={styles.albumArtImage}
-          source={{uri: this.props.albumArtUri }}/>
-      </View>
-    );
-  }
-});
+const AlbumArt = (props) => (
+  <View style={[styles.container, !props.albumArtUri ? styles.iconContainer : null]}>
+    {(props.albumArtUri
+      ? <Image style={styles.albumArtImage} source={{uri: props.albumArtUri }}/>
+      : <Icon name='error-outline' style={styles.icon} />
+    )}
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 3,
     backgroundColor: 'black'
   },
+  iconContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   albumArtImage: {
     flex:1
+  },
+  icon: {
+    color: 'white',
+    fontSize: 200
   }
 });
 

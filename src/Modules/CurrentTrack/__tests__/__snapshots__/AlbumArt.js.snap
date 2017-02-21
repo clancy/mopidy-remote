@@ -1,0 +1,64 @@
+exports[`AlbumArt tests renders icon with albumArtUri 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "black",
+        "flex": 3,
+      },
+      null,
+    ]
+  }>
+  <Image
+    source={
+      Object {
+        "uri": "http://someimage.url",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    } />
+</View>
+`;
+
+exports[`AlbumArt tests renders icon without albumArtUri 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "black",
+        "flex": 3,
+      },
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Object {
+          "color": "white",
+          "fontSize": 200,
+        },
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }>
+    
+  </Text>
+</View>
+`;
