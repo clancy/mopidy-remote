@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import CurrentTrackView from './CurrentTrackView';
 
 const mapStateToProps = (state) => {
-  var artists = state.mopidy.getIn(['currentTrack', 'artists']);
-  var trackUri = state.mopidy.getIn(['currentTrack', 'uri'])
+  let artists = state.mopidy.getIn(['currentTrack', 'artists']);
+  let trackUri = state.mopidy.getIn(['currentTrack', 'uri'])
   return {
     length: state.mopidy.getIn(['currentTrack', 'length']),
     position: state.mopidy.get('position'),
