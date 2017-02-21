@@ -22,8 +22,8 @@ export default class MopidySettingsView extends Component {
     port: PropTypes.string
   };
   connect = () => {
-    var hostname = this.state.hostname;
-    var port = this.state.port;
+    let hostname = this.state.hostname;
+    let port = this.state.port;
     //TODO validate hostname and port
     this.props.dispatch(MopidyActions.connect(hostname, port));
   };

@@ -33,15 +33,15 @@ class SettingsView extends Component {
         }]
     }
 
-    var goToMopidySettings = () => {
+    let goToMopidySettings = () => {
       this.props.navigator.push(Router.getRoute('mopidySettings'));
     }
 
-    var forceRefreshToken = () => {
+    let forceRefreshToken = () => {
       this.props.dispatch(SpotifyActions.refreshToken());
     }
 
-    var goToSpotifyLogin = () => {
+    let goToSpotifyLogin = () => {
       this.props.navigator.push(Router.getRoute('spotifyLogin'));
     }
 

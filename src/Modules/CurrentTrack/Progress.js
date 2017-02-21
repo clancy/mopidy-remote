@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const padZero = (num, size) => {
-  var s = num+"";
+  let s = num+"";
   while (s.length < size) s = "0" + s;
   return s;
 };
@@ -28,10 +28,10 @@ const Progress = React.createClass({
     if(ms === undefined){
       return '0:00'
     }
-    var x = Math.trunc(ms / 1000)
-    var seconds = x % 60
+    let x = Math.trunc(ms / 1000)
+    let seconds = x % 60
     x = Math.trunc(x / 60)
-    var minutes = x % 60
+    let minutes = x % 60
     return `${minutes}:${padZero(seconds,2)}`
   },
   getInitialState: function() {
@@ -85,7 +85,7 @@ const Progress = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: .5,
     backgroundColor: 'black',

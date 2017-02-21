@@ -44,7 +44,7 @@ export default function MopidyReducer(state = initialState, action) {
       return state.set('position', action.payload.trackPosition);
 
     case MopidyActions.MOPIDY_RECEIVE_ALBUM_ART:
-      var images = Map(Immutable.fromJS(action.payload).map(uriMap => uriMap.filter(images => images.get('width') == 640).get(0).get('uri')));
+      let images = Map(Immutable.fromJS(action.payload).map(uriMap => uriMap.filter(images => images.get('width') == 640).get(0).get('uri')));
       return state.mergeIn(['image_index'], images);
     default:
       return state;

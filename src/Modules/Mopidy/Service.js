@@ -1,7 +1,7 @@
 import Mopidy from 'mopidy';
 import store from '../../redux/store';
 import * as MopidyActions from './Actions';
-var mopidy = null;
+let mopidy = null;
 
 export function connect(webSocketUrl) {
   return new Promise((resolve, reject) => {
@@ -23,8 +23,8 @@ export function connect(webSocketUrl) {
 
 function eventSupervisor(event, data){
   console.log(JSON.stringify(event));
-  var cache = [];
-  var objString = JSON.stringify(data, function(key, value) {
+  let cache = [];
+  let objString = JSON.stringify(data, function(key, value) {
       if (typeof value === 'object' && value !== null) {
           if (cache.indexOf(value) !== -1) {
               // Circular reference found, discard key

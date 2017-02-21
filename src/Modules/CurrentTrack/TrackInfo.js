@@ -39,7 +39,7 @@ const TrackInfo = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: .5,
     backgroundColor: 'black',
