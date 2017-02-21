@@ -63,6 +63,10 @@ export function getCurrentTrack() {
   return mopidy.playback.getCurrentTrack();
 }
 
+export function getImages(uris) {
+  return mopidy.library.getImages({uris: uris});
+}
+
 export function getState() {
   return mopidy.playback.getState();
 }

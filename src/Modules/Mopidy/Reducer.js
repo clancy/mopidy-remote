@@ -10,7 +10,8 @@ const initialState = Map({
   playbackStatus: null,
   shuffle: false,
   repeat: false,
-  position: 0.0
+  position: 0.0,
+  image_index: Map({})
 });
 
 export default function MopidyReducer(state = initialState, action) {
@@ -42,6 +43,9 @@ export default function MopidyReducer(state = initialState, action) {
     case MopidyActions.MOPIDY_RECEIVE_TRACK_POSITION:
       return state.set('position', action.payload.trackPosition);
 
+    case MopidyActions.MOPIDY_RECEIVE_ALBUM_ART:
+      var images = Map(Immutable.fromJS(action.payload).map(uriMap => uriMap.filter(images => images.get('width') == 640).get(0).get('uri')));
+      return state.mergeIn(['image_index'], images);
     default:
       return state;
   }

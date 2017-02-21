@@ -13,14 +13,14 @@ export function connected(access_token, refresh_token) {
   };
 }
 
-export function receiveTrack(currentTrack) {
-  return {
-    type: SPOTIFY_RECEIVE_TRACK,
-    payload: {
-      currentTrack
-    }
-  };
-}
+// export function receiveTrack(currentTrack) {
+//   return {
+//     type: SPOTIFY_RECEIVE_TRACK,
+//     payload: {
+//       currentTrack
+//     }
+//   };
+// }
 
 export function refreshToken() {
   return {
@@ -31,6 +31,6 @@ export function refreshToken() {
 export function spotifyApiError(error) {
   return {
     type: SPOTIFY_REFRESH_TOKEN,
-    payload: SPOTIFY_API_ERROR
+    payload: error
   };
 }

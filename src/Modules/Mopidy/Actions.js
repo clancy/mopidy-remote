@@ -7,6 +7,8 @@ export const MOPIDY_RECEIVE_PLAYBACK_STATUS = 'Mopidy/MOPIDY_RECEIVE_PLAYBACK_ST
 export const MOPIDY_RECEIVE_SHUFFLE_STATUS = 'Mopidy/MOPIDY_RECEIVE_SHUFFLE_STATUS';
 export const MOPIDY_RECEIVE_REPEAT_STATUS = 'Mopidy/MOPIDY_RECEIVE_REPEAT_STATUS';
 export const MOPIDY_RECEIVE_TRACK_POSITION = 'Mopidy/MOPIDY_RECEIVE_TRACK_POSITION';
+export const MOPIDY_GET_ALBUM_ART = 'Mopidy/MOPIDY_GET_ALBUM_ART';
+export const MOPIDY_RECEIVE_ALBUM_ART = 'Mopidy/MOPIDY_RECEIVE_ALBUM_ART';
 
 export const MOPIDY_PLAY = 'Mopidy/MOPIDY_PLAY';
 export const MOPIDY_SHUFFLE = 'Mopidy/MOPIDY_SHUFFLE';
@@ -14,6 +16,20 @@ export const MOPIDY_REPEAT = 'Mopidy/MOPIDY_REPEAT';
 export const MOPIDY_PAUSE = 'Mopidy/MOPIDY_PAUSE';
 export const MOPIDY_NEXT_TRACK = 'Mopidy/MOPIDY_NEXT_TRACK';
 export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
+
+export function getAlbumArt(uris) {
+  return {
+    type: MOPIDY_GET_ALBUM_ART,
+    payload: uris
+  };
+}
+
+export function receiveAlbumArt(result) {
+  return {
+    type: MOPIDY_RECEIVE_ALBUM_ART,
+    payload: result
+  };
+}
 
 export function connect(hostname, port) {
   return {

@@ -4,7 +4,7 @@ import CurrentTrackView from './CurrentTrackView';
 
 const mapStateToProps = (state) => {
   var artists = state.mopidy.getIn(['currentTrack', 'artists']);
-  var albumUri = state.mopidy.getIn(['currentTrack', 'album', 'uri'])
+  var trackUri = state.mopidy.getIn(['currentTrack', 'uri'])
   return {
     length: state.mopidy.getIn(['currentTrack', 'length']),
     position: state.mopidy.get('position'),
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
     repeatEnabled: state.mopidy.get('repeat'),
     inLibrary: false,
     trackName: state.mopidy.getIn(['currentTrack', 'name']),
-    albumArtUri: state.spotify.getIn(['image_index', albumUri]),
+    albumArtUri: state.mopidy.getIn(['image_index', trackUri]),
     artists: artists ? artists.toJSON() : []
   }
 }

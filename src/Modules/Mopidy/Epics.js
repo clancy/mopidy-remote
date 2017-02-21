@@ -13,6 +13,19 @@ const rehydrateEpic = action$ =>
           action.payload.settings.getIn(['mopidy', 'hostname']),
           action.payload.settings.getIn(['mopidy', 'port'])));
 
+const mapReceiveTrackEpic = action$ =>
+  action$.ofType(MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK)
+         .map(action => MopidyActions.getAlbumArt([action.payload.currentTrack.uri]));
+
+const getAlbumArtEpic = (action$, store) =>
+ action$.ofType(MopidyActions.MOPIDY_GET_ALBUM_ART)
+        .map(action => action.payload.filter(uri => store.getState().mopidy.getIn(['image_index', uri]) == undefined))
+        .filter(uris => uris.length > 0)
+        .switchMap(uris =>
+          Rx.Observable.fromPromise(
+            Mopidy.getImages(uris))
+                  .map(MopidyActions.receiveAlbumArt));
+
 const connectEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_CONNECT)
          .map(action => `ws://${action.payload.hostname}:${action.payload.port}/mopidy/ws/`)
@@ -74,6 +87,8 @@ const repeatEpic = action$ =>
 const MopidyEpics = [
   connectEpic,
   connectedEpic,
+  mapReceiveTrackEpic,
+  getAlbumArtEpic,
   getInitialStateEpic,
   playEpic,
   pauseEpic,
