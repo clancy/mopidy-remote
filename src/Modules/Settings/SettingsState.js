@@ -24,10 +24,11 @@ export default function SettingsStateReducer(state = initialState, action) {
       });
 
     case SpotifyActions.SPOTIFY_CONNECTED:
+      let refresh_token = action.payload.refresh_token || state.getIn(['spotify', 'refresh_token']);
       return state.merge({
         spotify: {
           access_token: action.payload.access_token,
-          refresh_token: action.payload.refresh_token
+          refresh_token: refresh_token
         }
       });
 

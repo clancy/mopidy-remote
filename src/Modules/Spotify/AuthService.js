@@ -1,25 +1,24 @@
 // a library to wrap and simplify api calls
-import apisauce from 'apisauce'
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/dom/ajax';
 import store from '../../redux/store'
 
-// our "constructor"
-const create = (baseURL = 'http://thawing-basin-74614.herokuapp.com/') => {
-  const api = apisauce.create({
-    baseURL,
+const baseURL = 'http://thawing-basin-74614.herokuapp.com/';
+const getConfig = (url, method) => {
+  return {
     headers: {
       'Cache-Control': 'no-cache'
     },
+    method: method,
+    url: url,
     timeout: 10000
-  })
-
-  const refreshToken = (refresh_token) => api.get('refresh_token', {refresh_token: refresh_token})
-
-  return {
-    refreshToken
   }
 }
 
-// let's return back our create method as the default.
-export default {
-  create
-}
+const api = {
+  refreshToken: refresh_token => {
+    return Observable.ajax(getConfig(`${baseURL}refresh_token/?refresh_token=${refresh_token}`, 'GET'));
+  }
+};
+
+export default api;
