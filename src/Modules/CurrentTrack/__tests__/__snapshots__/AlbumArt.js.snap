@@ -1,28 +1,3 @@
-exports[`AlbumArt tests renders icon with albumArtUri 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "black",
-        "flex": 3,
-      },
-      null,
-    ]
-  }>
-  <Image
-    source={
-      Object {
-        "uri": "http://someimage.url",
-      }
-    }
-    style={
-      Object {
-        "flex": 1,
-      }
-    } />
-</View>
-`;
-
 exports[`AlbumArt tests renders icon without albumArtUri 1`] = `
 <View
   style={
@@ -60,5 +35,30 @@ exports[`AlbumArt tests renders icon without albumArtUri 1`] = `
     }>
     
   </Text>
+</View>
+`;
+
+exports[`AlbumArt tests renders image with albumArtUri 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "black",
+        "flex": 3,
+      },
+      null,
+    ]
+  }>
+  <Image
+    source={
+      Object {
+        "uri": "http://someimage.url",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    } />
 </View>
 `;

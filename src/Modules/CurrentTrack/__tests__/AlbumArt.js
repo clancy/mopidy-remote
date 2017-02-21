@@ -12,7 +12,7 @@ describe('AlbumArt tests', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('renders icon with albumArtUri', () => {
+  test('renders image with albumArtUri', () => {
     const tree = renderer.create(
       <AlbumArt albumArtUri={'http://someimage.url'}/>
     ).toJSON();
