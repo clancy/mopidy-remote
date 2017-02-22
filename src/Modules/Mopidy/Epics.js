@@ -15,6 +15,7 @@ const rehydrateEpic = action$ =>
 
 const mapReceiveTrackEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK)
+         .filter(action => action.payload.currentTrack)
          .map(action => MopidyActions.getAlbumArt([action.payload.currentTrack.uri]));
 
 const getAlbumArtEpic = (action$, store) =>
