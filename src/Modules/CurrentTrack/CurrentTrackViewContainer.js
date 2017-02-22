@@ -6,8 +6,8 @@ const mapStateToProps = (state) => {
   let artists = state.mopidy.getIn(['currentTrack', 'artists']);
   let trackUri = state.mopidy.getIn(['currentTrack', 'uri'])
   return {
-    length: state.mopidy.getIn(['currentTrack', 'length']),
-    position: state.mopidy.get('position'),
+    length: state.mopidy.getIn(['currentTrack', 'length']) || 0,
+    position: state.mopidy.get('position') || 0,
     playing: state.mopidy.get('playbackStatus') === 'playing',
     shuffleEnabled: state.mopidy.get('shuffle'),
     repeatEnabled: state.mopidy.get('repeat'),

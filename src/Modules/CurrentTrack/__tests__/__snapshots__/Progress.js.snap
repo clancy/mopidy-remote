@@ -1,0 +1,133 @@
+exports[`Progress tests renders Progress correctly with 0 lenght 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "black",
+      "flex": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+    }
+  }>
+  <View
+    style={
+      Object {
+        "flex": 15,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+        }
+      }>
+      0:00
+    </Text>
+  </View>
+  <RCTProgressView
+    progress={0}
+    progressTintColor="green"
+    style={
+      Array [
+        Object {
+          "height": 2,
+        },
+        Object {
+          "flex": 70,
+        },
+      ]
+    } />
+  <View
+    style={
+      Object {
+        "flex": 15,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+        }
+      }>
+      0:00
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Progress tests renders Progress correctly with length and position 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "black",
+      "flex": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+    }
+  }>
+  <View
+    style={
+      Object {
+        "flex": 15,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+        }
+      }>
+      1:00
+    </Text>
+  </View>
+  <RCTProgressView
+    progress={15}
+    progressTintColor="green"
+    style={
+      Array [
+        Object {
+          "height": 2,
+        },
+        Object {
+          "flex": 70,
+        },
+      ]
+    } />
+  <View
+    style={
+      Object {
+        "flex": 15,
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+        }
+      }>
+      0:04
+    </Text>
+  </View>
+</View>
+`;

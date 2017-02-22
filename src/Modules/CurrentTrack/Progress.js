@@ -15,13 +15,13 @@ const padZero = (num, size) => {
 
 const Progress = React.createClass({
   propTypes: {
-    length: PropTypes.number,
-    position: PropTypes.number,
+    length: PropTypes.number.isRequired,
+    position: PropTypes.number.isRequired,
     playing: PropTypes.bool.isRequired
   },
 
   getTrackProgress: (length: number, position: number) => {
-    return position / length;
+    return length > 0 ? position / length : 0;
   },
 
   msToMinAndSec: (ms: number) => {
