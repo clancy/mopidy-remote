@@ -1,147 +1,56 @@
-export const MOPIDY_CONNECT = 'Mopidy/CONNECT';
-export const MOPIDY_CONNECTED = 'Mopidy/CONNECTED';
-export const MOPIDY_READY = 'Mopidy/MOPIDY_READY';
-export const MOPIDY_GET_INITIAL_STATE = 'Mopidy/MOPIDY_GET_INITIAL_STATE';
-export const MOPIDY_RECEIVE_CURRENT_TRACK = 'Mopidy/MOPIDY_RECEIVE_CURRENT_TRACK';
-export const MOPIDY_RECEIVE_PLAYBACK_STATUS = 'Mopidy/MOPIDY_RECEIVE_PLAYBACK_STATUS';
-export const MOPIDY_RECEIVE_SHUFFLE_STATUS = 'Mopidy/MOPIDY_RECEIVE_SHUFFLE_STATUS';
-export const MOPIDY_RECEIVE_REPEAT_STATUS = 'Mopidy/MOPIDY_RECEIVE_REPEAT_STATUS';
-export const MOPIDY_RECEIVE_TRACK_POSITION = 'Mopidy/MOPIDY_RECEIVE_TRACK_POSITION';
-export const MOPIDY_GET_ALBUM_ART = 'Mopidy/MOPIDY_GET_ALBUM_ART';
-export const MOPIDY_RECEIVE_ALBUM_ART = 'Mopidy/MOPIDY_RECEIVE_ALBUM_ART';
+import { createActions } from 'redux-actions';
 
-export const MOPIDY_PLAY = 'Mopidy/MOPIDY_PLAY';
-export const MOPIDY_SHUFFLE = 'Mopidy/MOPIDY_SHUFFLE';
-export const MOPIDY_REPEAT = 'Mopidy/MOPIDY_REPEAT';
-export const MOPIDY_PAUSE = 'Mopidy/MOPIDY_PAUSE';
-export const MOPIDY_NEXT_TRACK = 'Mopidy/MOPIDY_NEXT_TRACK';
-export const MOPIDY_PREVIOUS_TRACK = 'Mopidy/MOPIDY_PREVIOUS_TRACK';
+export const MOPIDY_CONNECT = 'MOPIDY_CONNECT';
+export const MOPIDY_CONNECTED = 'MOPIDY_CONNECTED';
+export const MOPIDY_GET_INITIAL_STATE = 'MOPIDY_GET_INITIAL_STATE';
+export const MOPIDY_RECEIVE_CURRENT_TRACK = 'MOPIDY_RECEIVE_CURRENT_TRACK';
+export const MOPIDY_RECEIVE_PLAYBACK_STATUS = 'MOPIDY_RECEIVE_PLAYBACK_STATUS';
+export const MOPIDY_RECEIVE_SHUFFLE_STATUS = 'MOPIDY_RECEIVE_SHUFFLE_STATUS';
+export const MOPIDY_RECEIVE_REPEAT_STATUS = 'MOPIDY_RECEIVE_REPEAT_STATUS';
+export const MOPIDY_RECEIVE_TRACK_POSITION = 'MOPIDY_RECEIVE_TRACK_POSITION';
+export const MOPIDY_GET_ALBUM_ART = 'MOPIDY_GET_ALBUM_ART';
+export const MOPIDY_RECEIVE_ALBUM_ART = 'MOPIDY_RECEIVE_ALBUM_ART';
 
-export function getAlbumArt(uris) {
-  return {
-    type: MOPIDY_GET_ALBUM_ART,
-    payload: uris
-  };
-}
+export const MOPIDY_PLAY = 'MOPIDY_PLAY';
+export const MOPIDY_SHUFFLE = 'MOPIDY_SHUFFLE';
+export const MOPIDY_REPEAT = 'MOPIDY_REPEAT';
+export const MOPIDY_PAUSE = 'MOPIDY_PAUSE';
+export const MOPIDY_NEXT_TRACK = 'MOPIDY_NEXT_TRACK';
+export const MOPIDY_PREVIOUS_TRACK = 'MOPIDY_PREVIOUS_TRACK';
 
-export function receiveAlbumArt(result) {
-  return {
-    type: MOPIDY_RECEIVE_ALBUM_ART,
-    payload: result
-  };
-}
 
-export function connect(hostname, port) {
-  return {
-    type: MOPIDY_CONNECT,
-    payload: {
-      hostname,
-      port
-    }
-  };
-}
-
-export function connected() {
-  return {
-    type: MOPIDY_CONNECTED
-  };
-}
-
-export function getInitialState() {
-  return {
-    type: MOPIDY_GET_INITIAL_STATE
-  };
-}
-
-export function ready() {
-  return {
-    type: MOPIDY_READY
-  };
-}
-
-export function receiveCurrentTrack(currentTrack) {
-  return {
-    type: MOPIDY_RECEIVE_CURRENT_TRACK,
-    payload: {
-      currentTrack
-    }
-  };
-}
-
-export function receivePlaybackStatus(playbackStatus) {
-  return {
-    type: MOPIDY_RECEIVE_PLAYBACK_STATUS,
-    payload: {
-      playbackStatus
-    }
-  };
-}
-
-export function receiveShuffleStatus(shuffle) {
-  return {
-    type: MOPIDY_RECEIVE_SHUFFLE_STATUS,
-    payload: {
-      shuffle
-    }
-  };
-}
-
-export function receiveRepeatStatus(repeat) {
-  return {
-    type: MOPIDY_RECEIVE_REPEAT_STATUS,
-    payload: {
-      repeat
-    }
-  };
-}
-
-export function receiveTrackPosition(trackPosition) {
-  return {
-    type: MOPIDY_RECEIVE_TRACK_POSITION,
-    payload: {
-      trackPosition
-    }
-  };
-}
-
-export function play() {
-  return {
-    type: MOPIDY_PLAY
-  };
-}
-
-export function pause() {
-  return {
-    type: MOPIDY_PAUSE
-  };
-}
-
-export function shuffle(enabled) {
-  return {
-    type: MOPIDY_SHUFFLE,
-    payload: {
-      enabled
-    }
-  };
-}
-
-export function repeat(enabled) {
-  return {
-    type: MOPIDY_REPEAT,
-    payload: {
-      enabled
-    }
-  };
-}
-
-export function nextTrack() {
-  return {
-    type: MOPIDY_NEXT_TRACK
-  };
-}
-
-export function previousTrack() {
-  return {
-    type: MOPIDY_PREVIOUS_TRACK
-  };
-}
+export const {
+  mopidyConnect: connect,
+  mopidyGetAlbumArt: getAlbumArt,
+  mopidyReceiveAlbumArt: receiveAlbumArt,
+  mopidyReceiveCurrentTrack: receiveCurrentTrack,
+  mopidyReceivePlaybackStatus: receivePlaybackStatus,
+  mopidyReceiveShuffleStatus: receiveShuffleStatus,
+  mopidyReceiveRepeatStatus: receiveRepeatStatus,
+  mopidyReceiveTrackPosition: receiveTrackPosition,
+  mopidyShuffle: shuffle,
+  mopidyRepeat: repeat,
+  mopidyPlay: play,
+  mopidyPause: pause,
+  mopidyNextTrack: nextTrack,
+  mopidyPreviousTrack: previousTrack,
+  mopidyConnected: connected,
+  mopidyGetInitialState: getInitialState
+} = createActions({
+  MOPIDY_CONNECT: (hostname, port) => ({ hostname: hostname, port:port })
+},
+  MOPIDY_GET_ALBUM_ART,
+  MOPIDY_RECEIVE_ALBUM_ART,
+  MOPIDY_RECEIVE_CURRENT_TRACK,
+  MOPIDY_RECEIVE_PLAYBACK_STATUS,
+  MOPIDY_RECEIVE_SHUFFLE_STATUS,
+  MOPIDY_RECEIVE_REPEAT_STATUS,
+  MOPIDY_RECEIVE_TRACK_POSITION,
+  MOPIDY_SHUFFLE,
+  MOPIDY_REPEAT,
+  MOPIDY_PLAY,
+  MOPIDY_PAUSE,
+  MOPIDY_NEXT_TRACK,
+  MOPIDY_PREVIOUS_TRACK,
+  MOPIDY_CONNECTED,
+  MOPIDY_GET_INITIAL_STATE);

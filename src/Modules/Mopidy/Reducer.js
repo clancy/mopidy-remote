@@ -5,7 +5,6 @@ const initialState = Map({
   hostname: null,
   port: null,
   connected: false,
-  ready: false,
   currentTrack: null,
   playbackStatus: null,
   shuffle: false,
@@ -24,24 +23,21 @@ export default function MopidyReducer(state = initialState, action) {
 
     case MopidyActions.MOPIDY_CONNECTED:
       return state.set('connected', true);
-
-    case MopidyActions.MOPIDY_READY:
-      return state.set('ready', true);
-
+      
     case MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK:
-      return state.set('currentTrack', Immutable.fromJS(action.payload.currentTrack));
+      return state.set('currentTrack', Immutable.fromJS(action.payload));
 
     case MopidyActions.MOPIDY_RECEIVE_PLAYBACK_STATUS:
-      return state.set('playbackStatus', action.payload.playbackStatus);
+      return state.set('playbackStatus', action.payload);
 
     case MopidyActions.MOPIDY_RECEIVE_SHUFFLE_STATUS:
-      return state.set('shuffle', action.payload.shuffle);
+      return state.set('shuffle', action.payload);
 
     case MopidyActions.MOPIDY_RECEIVE_REPEAT_STATUS:
-      return state.set('repeat', action.payload.repeat);
+      return state.set('repeat', action.payload);
 
     case MopidyActions.MOPIDY_RECEIVE_TRACK_POSITION:
-      return state.set('position', action.payload.trackPosition);
+      return state.set('position', action.payload);
 
     case MopidyActions.MOPIDY_RECEIVE_ALBUM_ART:
       let images = Map(Immutable.fromJS(action.payload).map(uriMap => uriMap.filter(images => images.get('width') == 640).get(0).get('uri')));

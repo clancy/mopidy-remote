@@ -2853,7 +2853,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3698,6 +3698,18 @@ redeyed@~1.0.0:
   resolved "https://registry.yarnpkg.com/redeyed/-/redeyed-1.0.1.tgz#e96c193b40c0816b00aec842698e61185e55498a"
   dependencies:
     esprima "~3.0.0"
+
+reduce-reducers@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
+
+redux-actions@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-1.2.1.tgz#649711d88f49f1dde5bc5a1cea8ceec5b54d9181"
+  dependencies:
+    invariant "^2.2.1"
+    lodash "^4.13.1"
+    reduce-reducers "^0.1.0"
 
 redux-batched-actions@^0.1.2:
   version "0.1.5"
