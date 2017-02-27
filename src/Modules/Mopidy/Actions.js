@@ -3,10 +3,15 @@ import { createActions } from 'redux-actions';
 export const MOPIDY_CONNECT = 'MOPIDY_CONNECT';
 export const MOPIDY_CONNECTED = 'MOPIDY_CONNECTED';
 export const MOPIDY_GET_INITIAL_STATE = 'MOPIDY_GET_INITIAL_STATE';
+export const MOPIDY_GET_CURRENT_TRACK = 'MOPIDY_GET_CURRENT_TRACK';
 export const MOPIDY_RECEIVE_CURRENT_TRACK = 'MOPIDY_RECEIVE_CURRENT_TRACK';
+export const MOPIDY_GET_PLAYBACK_STATUS = 'MOPIDY_GET_PLAYBACK_STATUS';
 export const MOPIDY_RECEIVE_PLAYBACK_STATUS = 'MOPIDY_RECEIVE_PLAYBACK_STATUS';
+export const MOPIDY_GET_SHUFFLE_STATUS = 'MOPIDY_GET_SHUFFLE_STATUS';
 export const MOPIDY_RECEIVE_SHUFFLE_STATUS = 'MOPIDY_RECEIVE_SHUFFLE_STATUS';
+export const MOPIDY_GET_REPEAT_STATUS = 'MOPIDY_GET_REPEAT_STATUS';
 export const MOPIDY_RECEIVE_REPEAT_STATUS = 'MOPIDY_RECEIVE_REPEAT_STATUS';
+export const MOPIDY_GET_TRACK_POSITION = 'MOPIDY_GET_TRACK_POSITION';
 export const MOPIDY_RECEIVE_TRACK_POSITION = 'MOPIDY_RECEIVE_TRACK_POSITION';
 export const MOPIDY_GET_ALBUM_ART = 'MOPIDY_GET_ALBUM_ART';
 export const MOPIDY_RECEIVE_ALBUM_ART = 'MOPIDY_RECEIVE_ALBUM_ART';
@@ -22,6 +27,11 @@ export const MOPIDY_PREVIOUS_TRACK = 'MOPIDY_PREVIOUS_TRACK';
 export const {
   mopidyConnect: connect,
   mopidyGetAlbumArt: getAlbumArt,
+  mopidyGetCurrentTrack: getCurrentTrack,
+  mopidyGetPlaybackStatus: getPlaybackStatus,
+  mopidyGetShuffleStatus: getShuffleStatus,
+  mopidyGetRepeatStatus: getRepeatStatus,
+  mopidyGetTrackPosition: getTrackPosition,
   mopidyReceiveAlbumArt: receiveAlbumArt,
   mopidyReceiveCurrentTrack: receiveCurrentTrack,
   mopidyReceivePlaybackStatus: receivePlaybackStatus,
@@ -40,6 +50,11 @@ export const {
   MOPIDY_CONNECT: (hostname, port) => ({ hostname: hostname, port:port })
 },
   MOPIDY_GET_ALBUM_ART,
+  MOPIDY_GET_CURRENT_TRACK,
+  MOPIDY_GET_PLAYBACK_STATUS,
+  MOPIDY_GET_SHUFFLE_STATUS,
+  MOPIDY_GET_REPEAT_STATUS,
+  MOPIDY_GET_TRACK_POSITION,
   MOPIDY_RECEIVE_ALBUM_ART,
   MOPIDY_RECEIVE_CURRENT_TRACK,
   MOPIDY_RECEIVE_PLAYBACK_STATUS,
