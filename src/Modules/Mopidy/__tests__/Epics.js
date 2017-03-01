@@ -19,50 +19,6 @@ describe('Epics', () => {
   });
 
   describe('rehydrateEpic', () => {
-    it('Does not dispatch if settings undefined', (done) => {
-      const action = { type: ReduxPersistConstants.REHYDRATE, payload: { settings: undefined } };
-      const expectedActions = []
-
-      testEpic(MopidyEpics.rehydrateEpic, expectedActions.length, action, (actions) => {
-        expect(actions).toEqual(expectedActions);
-        done();
-      });
-    });
-
-    it('Does not dispatch if hostname undefined', (done) => {
-      const action = {
-        type: ReduxPersistConstants.REHYDRATE,
-        payload: {
-          settings: Map({
-            hostname: undefined
-          })
-        }
-      };
-      const expectedActions = []
-
-      testEpic(MopidyEpics.rehydrateEpic, expectedActions.length, action, (actions) => {
-        expect(actions).toEqual(expectedActions);
-        done();
-      });
-    });
-
-    it('Does not dispatch if port undefined', (done) => {
-      const action = {
-        type: ReduxPersistConstants.REHYDRATE,
-        payload: {
-          settings: Map({
-            hostname: '192.168.1.20',
-            port: undefined
-          })
-        }
-      };
-      const expectedActions = []
-
-      testEpic(MopidyEpics.rehydrateEpic, expectedActions.length, action, (actions) => {
-        expect(actions).toEqual(expectedActions);
-        done();
-      });
-    });
 
     it('Dispatches connect action with hostname port payload', (done) => {
       const action = {
@@ -92,16 +48,6 @@ describe('Epics', () => {
   });
 
   describe('mapReceiveTrackEpic', () => {
-    it('Does not dispatch is payload undefined', (done) => {
-      const action = { type: MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK, payload: undefined};
-      const expectedActions = []
-
-      testEpic(MopidyEpics.mapReceiveTrackEpic, expectedActions.length, action, (actions) => {
-        expect(actions).toEqual(expectedActions);
-        done();
-      });
-    });
-
     it('Dispatches get album art if uri not found in image cache', (done) => {
       const action = {
         type: MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK,
@@ -128,6 +74,18 @@ describe('Epics', () => {
         expect(actions).toEqual(expectedActions);
         done();
       }, state);
+    });
+  });
+
+  describe('connectedEpic', () => {
+    it('Dispatches getInitialState action', (done) => {
+      const action = { type: MopidyActions.MOPIDY_CONNECTED };
+      const expectedActions = [{ type: MopidyActions.MOPIDY_GET_INITIAL_STATE }]
+
+      testEpic(MopidyEpics.connectedEpic, expectedActions.length, action, (actions) => {
+        expect(actions).toEqual(expectedActions);
+        done();
+      });
     });
   });
 });
