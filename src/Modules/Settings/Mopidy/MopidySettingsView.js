@@ -7,7 +7,6 @@ import {
   TouchableOpacity
 } from 'react-native';
 import FormRow from './FormRow'
-import * as MopidyActions from '../../Mopidy/Actions'
 
 export default class MopidySettingsView extends Component {
   constructor(props) {
@@ -25,7 +24,7 @@ export default class MopidySettingsView extends Component {
     let hostname = this.state.hostname;
     let port = this.state.port;
     //TODO validate hostname and port
-    this.props.dispatch(MopidyActions.connect(hostname, port));
+    this.props.connect(hostname, port);
   };
   render() {
     return (

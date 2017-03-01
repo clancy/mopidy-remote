@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import MopidySettingsView from './MopidySettingsView';
+import * as MopidyActions from '../../Mopidy/Actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -8,4 +9,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(MopidySettingsView);
+const mapDispatchToProps = (dispatch) => {
+    return({
+      connect: (hostname, port) => { dispatch(MopidyActions.connect(hostname, port)) },
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MopidySettingsView);
