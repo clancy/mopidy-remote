@@ -1,6 +1,7 @@
 /* @flow */
 import {connect} from 'react-redux';
 import CurrentTrackView from './CurrentTrackView';
+import * as MopidyActions from '../Mopidy/Actions'
 
 const mapStateToProps = (state) => {
   let artists = state.mopidy.getIn(['currentTrack', 'artists']);
@@ -18,4 +19,15 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(CurrentTrackView);
+const mapDispatchToProps = (dispatch) => {
+    return({
+      play: () => { dispatch(MopidyActions.play()) },
+      pause: () => { dispatch(MopidyActions.pause()) },
+      previous: () => { dispatch(MopidyActions.previousTrack()) },
+      next: () => { dispatch(MopidyActions.nextTrack()) },
+      shuffle: (enabled) => { dispatch(MopidyActions.shuffle(enabled)) },
+      repeat: (enabled) => { dispatch(MopidyActions.repeat(enabled)) }
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentTrackView);

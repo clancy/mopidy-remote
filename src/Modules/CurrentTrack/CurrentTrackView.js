@@ -4,7 +4,6 @@ import Controls from './Controls'
 import Progress from './Progress'
 import TrackInfo from './TrackInfo'
 import AlbumArt from './AlbumArt'
-import * as MopidyActions from '../Mopidy/Actions'
 import {
   View,
   StyleSheet
@@ -27,22 +26,22 @@ const CurrentTrackView = React.createClass({
   },
   playPause() {
     if(this.props.playing){
-      this.props.dispatch(MopidyActions.pause());
+      this.props.pause();
     } else {
-      this.props.dispatch(MopidyActions.play());
+      this.props.play();
     }
   },
   previous() {
-    this.props.dispatch(MopidyActions.previousTrack());
+    this.props.previous();
   },
   next() {
-    this.props.dispatch(MopidyActions.nextTrack());
+    this.props.next();
   },
   shuffle() {
-    this.props.dispatch(MopidyActions.shuffle(!this.props.shuffleEnabled));
+    this.props.shuffle(!this.props.shuffleEnabled);
   },
   repeat() {
-    this.props.dispatch(MopidyActions.repeat(!this.props.repeatEnabled));
+    this.props.repeat(!this.props.repeatEnabled);
   },
   render() {
     return (
