@@ -1,0 +1,124 @@
+exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "flex": 1,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 40,
+        "margin": 5,
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "width": 80,
+        }
+      }>
+      Host Name
+    </Text>
+    <TextInput
+      onChangeText={[Function]}
+      style={
+        Object {
+          "borderColor": "white",
+          "borderWidth": 1,
+          "color": "white",
+          "flex": 1,
+        }
+      }
+      value="192.168.1.1" />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 40,
+        "margin": 5,
+      }
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "width": 80,
+        }
+      }>
+      Port
+    </Text>
+    <TextInput
+      onChangeText={[Function]}
+      style={
+        Object {
+          "borderColor": "white",
+          "borderWidth": 1,
+          "color": "white",
+          "flex": 1,
+        }
+      }
+      value="6680" />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "height": 40,
+        "margin": 5,
+      }
+    }>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 20,
+          "flex": 0.3,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingLeft": 40,
+          "paddingRight": 40,
+        }
+      }
+      testID={undefined}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "black",
+            "fontWeight": "bold",
+          }
+        }>
+        CONNECT
+      </Text>
+    </View>
+  </View>
+</View>
+`;
