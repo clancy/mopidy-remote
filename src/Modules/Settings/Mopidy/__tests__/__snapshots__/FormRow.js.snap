@@ -1,0 +1,35 @@
+exports[`FormRow tests renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "height": 40,
+      "margin": 5,
+    }
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "width": 80,
+      }
+    }>
+    label
+  </Text>
+  <TextInput
+    onChangeText={undefined}
+    style={
+      Object {
+        "borderColor": "white",
+        "borderWidth": 1,
+        "color": "white",
+        "flex": 1,
+      }
+    }
+    value="value" />
+</View>
+`;
