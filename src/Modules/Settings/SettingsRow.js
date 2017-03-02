@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const SpotifyRow = (props) => (
+const SettingsRow = (props) => (
   <View style={styles.container}>
     <TouchableOpacity
       onPress={props.onPress} >
@@ -27,4 +27,4 @@ const SpotifyRow = (props) => (
   </View>
 );
 
-export default SpotifyRow;
+export default SettingsRow;
