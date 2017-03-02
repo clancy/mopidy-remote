@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const SectionHeader = (props) => (
+const SettingsSectionHeader = (props) => (
   <View style={styles.container}>
     <Text style={styles.text}>{props.text}</Text>
   </View>
 );
 
-export default SectionHeader;
+export default SettingsSectionHeader;

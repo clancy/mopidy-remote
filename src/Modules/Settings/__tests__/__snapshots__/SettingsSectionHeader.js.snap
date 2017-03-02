@@ -1,0 +1,24 @@
+exports[`SettingsSectionHeader tests renders SettingsSectionHeader correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 8,
+    }
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 13,
+        "fontWeight": "bold",
+      }
+    }>
+    Text
+  </Text>
+</View>
+`;

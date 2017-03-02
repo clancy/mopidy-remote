@@ -5,7 +5,7 @@ import {
   View,
   ListView
 } from 'react-native';
-import SpotifyRow from './SpotifyRow'
+import SettingsRow from './SettingsRow'
 import * as SpotifyActions from '../Spotify/Actions'
 import SettingsSectionHeader from './SettingsSectionHeader'
 import Router from '../Navigation/Router'
@@ -55,7 +55,7 @@ class SettingsView extends Component {
       <View style={styles.container}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(data) => <SpotifyRow {...data} /> }
+          renderRow={(data) => <SettingsRow {...data} /> }
           renderSectionHeader={(sectionData, sectionID) => <SettingsSectionHeader text={sectionID} />}
         />
       </View>
