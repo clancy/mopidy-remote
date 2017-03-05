@@ -45,24 +45,7 @@ export default class DrawerNavigationLayout extends Component {
         drawerPosition="left"
         renderHeader={this._renderHeader}
         drawerWidth={300}
-        initialItem="settings">
-        <DrawerNavigationItem
-          id="settings"
-          selectedStyle={styles.selectedItemStyle}
-          renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
-          renderIcon={isSelected => this._renderIcon('settings', isSelected)}>
-          <StackNavigation
-            id="root"
-            defaultRouteConfig={{
-              navigationBar: {
-                backgroundColor: '#0084FF',
-                tintColor: '#fff',
-                title: 'Home'
-              },
-            }}
-            initialRoute={Router.getRoute('settings')}
-          />
-        </DrawerNavigationItem>
+        initialItem="playlist">
         <DrawerNavigationItem
           id="currentTrack"
           selectedStyle={styles.selectedItemStyle}
@@ -80,6 +63,41 @@ export default class DrawerNavigationLayout extends Component {
             initialRoute={Router.getRoute('currentTrack')}
           />
         </DrawerNavigationItem>
+        <DrawerNavigationItem
+          id="playlist"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('Playlist', isSelected)}
+          renderIcon={isSelected => this._renderIcon('queue-music', isSelected)}>
+          <StackNavigation
+            id="root"
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: '#0084FF',
+                tintColor: '#fff',
+                title: 'Home'
+              },
+            }}
+            initialRoute={Router.getRoute('playlist')}
+          />
+        </DrawerNavigationItem>
+        <DrawerNavigationItem
+          id="settings"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle('Settings', isSelected)}
+          renderIcon={isSelected => this._renderIcon('settings', isSelected)}>
+          <StackNavigation
+            id="root"
+            defaultRouteConfig={{
+              navigationBar: {
+                backgroundColor: '#0084FF',
+                tintColor: '#fff',
+                title: 'Home'
+              },
+            }}
+            initialRoute={Router.getRoute('settings')}
+          />
+        </DrawerNavigationItem>
+
       </DrawerNavigation>
     );
   }
