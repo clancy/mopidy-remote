@@ -8,7 +8,6 @@ import {
 import SettingsRow from './SettingsRow'
 import * as SpotifyActions from '../Spotify/Actions'
 import SettingsSectionHeader from './SettingsSectionHeader'
-import Router from '../Navigation/Router'
 
 class SettingsView extends Component {
   constructor() {
