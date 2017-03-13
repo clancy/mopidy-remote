@@ -34,7 +34,7 @@ class SettingsView extends Component {
     }
 
     let goToMopidySettings = () => {
-      this.props.navigator.push(Router.getRoute('mopidySettings'));
+      this.props.navigation.navigate('MopidySettings');
     }
 
     let forceRefreshToken = () => {
@@ -42,7 +42,7 @@ class SettingsView extends Component {
     }
 
     let goToSpotifyLogin = () => {
-      this.props.navigator.push(Router.getRoute('spotifyLogin'));
+      this.props.navigation.navigate('SpotifyLogin');
     }
 
     this.state = {

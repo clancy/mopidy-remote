@@ -10,7 +10,7 @@ class SpotifyLoginView extends Component {
     let url = Url(event.url, true);
     if(url.query && url.query.access_token && url.query.refresh_token){
       this.props.dispatch(SpotifyActions.connected(url.query.access_token, url.query.refresh_token));
-      this.props.navigator.pop();
+      this.props.navigation.goBack();
     }
     return true;
   };
