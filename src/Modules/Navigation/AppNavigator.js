@@ -1,4 +1,6 @@
-import { DrawerNavigator, StackNavigator } from 'react-navigation'
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
+import Drawer from './Drawer';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import CurrentTrackViewContainer from '../CurrentTrack/CurrentTrackViewContainer';
 import PlaylistViewContainer from '../Playlist/PlaylistViewContainer';
@@ -8,15 +10,20 @@ import SpotifyLoginViewContainer from '../Settings/Spotify/SpotifyLoginViewConta
 import WithNavigationHeader from './WithNavigationHeader';
 
 const AppNavigator = DrawerNavigator({
-  CurrentTrack: { screen: StackNavigator({ CurrentTrack: { screen: WithNavigationHeader(CurrentTrackViewContainer, "Current Track") }})},
-  Playlist: { screen: StackNavigator({ Playlist: { screen: WithNavigationHeader(PlaylistViewContainer, "Playlist") }})},
+  CurrentTrack: { screen: StackNavigator({ CurrentTrack: { screen: WithNavigationHeader(CurrentTrackViewContainer, "Current Track", "play-circle-outline") }})},
+  Playlist: { screen: StackNavigator({ Playlist: { screen: WithNavigationHeader(PlaylistViewContainer, "Playlist", "queue-music") }})},
   Settings: { screen: StackNavigator({
-    Settings: { screen: WithNavigationHeader(SettingsViewContainer, "Settings") },
+    Settings: { screen: WithNavigationHeader(SettingsViewContainer, "Settings", "settings") },
     MopidySettings: { screen: MopidySettingsViewContainer },
     SpotifyLogin: { screen: SpotifyLoginViewContainer }
   })}
+}, {
+  contentOptions: {
+    activeTintColor: 'green',
+    inactiveTintColor: 'white'
+  },
+  contentComponent: Drawer
 });
-
 
 
 export default AppNavigator;
