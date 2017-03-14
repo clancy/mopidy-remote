@@ -7,30 +7,27 @@
     "test": "jest"
   },
   "dependencies": {
-    "apisauce": "^0.10.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
-    "mopidy": "^0.5.0",
     "react": "~15.4.0-rc.4",
-    "react-native": "0.40.0",
-    "react-native-vector-icons": "^3.0.0",
+    "react-native": "^0.42.0",
+    "react-native-vector-icons": "^4.0.0",
     "react-navigation": "^1.0.0-beta.7",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "redux-actions": "^1.2.1",
-    "redux-logger": "^2.7.4",
-    "redux-observable": "^0.12.2",
+    "redux-actions": "^2.0.1",
+    "redux-logger": "^2.8.2",
+    "redux-observable": "^0.14.1",
     "redux-persist": "^4.3.0",
     "redux-persist-transform-immutable": "^4.2.0",
     "rxjs": "^5.0.2",
-    "url-parse": "^1.1.7",
-    "when": "3.7.2"
+    "url-parse": "^1.1.7"
   },
   "devDependencies": {
-    "babel-jest": "18.0.0",
+    "babel-jest": "^19.0.0",
     "babel-preset-react-native": "1.9.1",
     "enzyme": "^2.7.1",
     "flow": "^0.2.3",
-    "jest": "18.1.0",
+    "jest": "^19.0.2",
     "react-native-mock": "^0.3.1",
     "react-test-renderer": "~15.4.0-rc.4"
   },
