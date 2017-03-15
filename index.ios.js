@@ -9,7 +9,7 @@ class MopidyRemote extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
         <Provider store={store}>
           <AppWithNavigationState />
         </Provider>
