@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1`] = `
 <View
   style={
@@ -8,7 +10,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
       "flexDirection": "row",
       "justifyContent": "space-between",
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -16,7 +19,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -36,7 +40,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>
@@ -47,7 +52,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
         "flex": 70,
         "flexDirection": "column",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -57,7 +63,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
           "color": "white",
           "fontWeight": "bold",
         }
-      }>
+      }
+    >
       Harry
     </Text>
     <Text
@@ -68,7 +75,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
         Object {
           "color": "white",
         }
-      }>
+      }
+    >
       Sally
     </Text>
   </View>
@@ -79,7 +87,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -99,7 +108,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary false 1
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>
@@ -116,7 +126,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
       "flexDirection": "row",
       "justifyContent": "space-between",
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -124,7 +135,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -144,7 +156,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>
@@ -155,7 +168,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
         "flex": 70,
         "flexDirection": "column",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -165,7 +179,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
           "color": "white",
           "fontWeight": "bold",
         }
-      }>
+      }
+    >
       Harry
     </Text>
     <Text
@@ -176,7 +191,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
         Object {
           "color": "white",
         }
-      }>
+      }
+    >
       Sally
     </Text>
   </View>
@@ -187,7 +203,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -207,7 +224,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with inLibrary true 1`
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>
@@ -224,7 +242,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
       "flexDirection": "row",
       "justifyContent": "space-between",
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -232,7 +251,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -252,7 +272,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>
@@ -263,7 +284,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
         "flex": 70,
         "flexDirection": "column",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -273,7 +295,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
           "color": "white",
           "fontWeight": "bold",
         }
-      }>
+      }
+    >
       Harry
     </Text>
     <Text
@@ -284,7 +307,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
         Object {
           "color": "white",
         }
-      }>
+      }
+    >
       Sally, Fred
     </Text>
   </View>
@@ -295,7 +319,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
         "flexDirection": "row",
         "justifyContent": "center",
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -315,7 +340,8 @@ exports[`TrackInfo tests renders TrackInfo correctly with with multiple artists 
             "fontWeight": "normal",
           },
         ]
-      }>
+      }
+    >
       
     </Text>
   </View>

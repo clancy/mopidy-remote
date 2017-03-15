@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`FormRow tests renders correctly 1`] = `
 <View
   style={
@@ -7,7 +9,8 @@ exports[`FormRow tests renders correctly 1`] = `
       "height": 40,
       "margin": 5,
     }
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -17,7 +20,8 @@ exports[`FormRow tests renders correctly 1`] = `
         "color": "white",
         "width": 80,
       }
-    }>
+    }
+  >
     label
   </Text>
   <TextInput
@@ -30,6 +34,7 @@ exports[`FormRow tests renders correctly 1`] = `
         "flex": 1,
       }
     }
-    value="value" />
+    value="value"
+  />
 </View>
 `;

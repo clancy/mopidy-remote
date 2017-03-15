@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
 <View
   style={
@@ -5,7 +7,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
       "backgroundColor": "black",
       "flex": 1,
     }
-  }>
+  }
+>
   <View
     style={
       Object {
@@ -14,7 +17,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
         "height": 40,
         "margin": 5,
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -24,7 +28,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
           "color": "white",
           "width": 80,
         }
-      }>
+      }
+    >
       Host Name
     </Text>
     <TextInput
@@ -37,7 +42,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
           "flex": 1,
         }
       }
-      value="192.168.1.1" />
+      value="192.168.1.1"
+    />
   </View>
   <View
     style={
@@ -47,7 +53,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
         "height": 40,
         "margin": 5,
       }
-    }>
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -57,7 +64,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
           "color": "white",
           "width": 80,
         }
-      }>
+      }
+    >
       Port
     </Text>
     <TextInput
@@ -70,7 +78,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
           "flex": 1,
         }
       }
-      value="6680" />
+      value="6680"
+    />
   </View>
   <View
     style={
@@ -80,13 +89,15 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
         "height": 40,
         "margin": 5,
       }
-    }>
+    }
+  >
     <View
       accessibilityComponentType={undefined}
       accessibilityLabel={undefined}
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      isTVSelectable={true}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -105,7 +116,9 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
           "paddingRight": 40,
         }
       }
-      testID={undefined}>
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -115,7 +128,8 @@ exports[`MopidySettingsView tests renders MopidySettingsView correctly 1`] = `
             "color": "black",
             "fontWeight": "bold",
           }
-        }>
+        }
+      >
         CONNECT
       </Text>
     </View>
