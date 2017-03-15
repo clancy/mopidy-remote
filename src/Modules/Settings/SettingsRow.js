@@ -1,6 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
+const SettingsRow = (props) => (
+  <View style={styles.container}>
+    <TouchableOpacity
+      onPress={props.onPress} >
+      <Text style={styles.text}>
+        {props.text}
+      </Text>
+    </TouchableOpacity>
+
+  </View>
+);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -14,17 +26,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
   }
 });
-
-const SettingsRow = (props) => (
-  <View style={styles.container}>
-    <TouchableOpacity
-      onPress={props.onPress} >
-      <Text style={styles.text}>
-        {props.text}
-      </Text>
-    </TouchableOpacity>
-
-  </View>
-);
 
 export default SettingsRow;

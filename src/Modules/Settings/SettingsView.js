@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView
+  SectionList
 } from 'react-native';
 import SettingsRow from './SettingsRow'
 import * as SpotifyActions from '../Spotify/Actions'
@@ -12,50 +12,33 @@ import SettingsSectionHeader from './SettingsSectionHeader'
 class SettingsView extends Component {
   constructor() {
     super();
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-      sectionHeaderHasChanged : (s1, s2) => s1 !== s2
-    });
-
-    const configEntries = {
-      "Mopidy" : [{
-        text: "Connect to Mopidy",
-        onPress: () => goToMopidySettings()
-      }],
-      "Spotify" : [{
-          text: "Login to Spotify",
-          onPress: () => goToSpotifyLogin()
-        },
-        {
-          text: "Force refresh token",
-          onPress: () => forceRefreshToken()
-        }]
-    }
-
-    let goToMopidySettings = () => {
-      this.props.navigation.navigate('MopidySettings');
-    }
-
-    let forceRefreshToken = () => {
-      this.props.dispatch(SpotifyActions.refreshToken());
-    }
-
-    let goToSpotifyLogin = () => {
-      this.props.navigation.navigate('SpotifyLogin');
-    }
-
-    this.state = {
-      dataSource: ds.cloneWithRowsAndSections(configEntries)
-    }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(data) => <SettingsRow {...data} /> }
-          renderSectionHeader={(sectionData, sectionID) => <SettingsSectionHeader text={sectionID} />}
+        <SectionList
+          renderItem={({item}) => <SettingsRow {...item} /> }
+          renderSectionHeader={({section}) => <SettingsSectionHeader text={section.key} />}
+          sections={[{
+            key: 'Mopidy',
+            data: [{
+              key:0,
+              text: "Connect to Mopidy",
+              onPress: () => this.props.navigation.navigate('MopidySettings')
+            }]
+          }, {
+            key: 'Spotify',
+            data: [{
+              key: 0,
+              text: "Login to Spotify",
+              onPress: () => this.props.navigation.navigate('SpotifyLogin')
+            },{
+              key: 1,
+              text: "Force refresh token",
+              onPress: () => this.props.dispatch(SpotifyActions.refreshToken())
+            }]
+          }]}
         />
       </View>
     );
