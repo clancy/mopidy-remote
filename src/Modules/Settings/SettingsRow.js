@@ -9,7 +9,6 @@ const SettingsRow = (props) => (
         {props.text}
       </Text>
     </TouchableOpacity>
-
   </View>
 );
 

@@ -22,7 +22,8 @@ const AppNavigator = DrawerNavigator({
     activeTintColor: 'green',
     inactiveTintColor: 'white'
   },
-  contentComponent: Drawer
+  contentComponent: Drawer,
+  initialRouteName: 'Playlist'
 });
 
 
