@@ -5,6 +5,8 @@ export const MOPIDY_CONNECTED = 'MOPIDY_CONNECTED';
 export const MOPIDY_GET_INITIAL_STATE = 'MOPIDY_GET_INITIAL_STATE';
 export const MOPIDY_GET_CURRENT_TRACK = 'MOPIDY_GET_CURRENT_TRACK';
 export const MOPIDY_RECEIVE_CURRENT_TRACK = 'MOPIDY_RECEIVE_CURRENT_TRACK';
+export const MOPIDY_GET_TL_TRACKS = 'MOPIDY_GET_TL_TRACKS';
+export const MOPIDY_RECEIVE_TL_TRACKS = 'MOPIDY_RECEIVE_TL_TRACKS';
 export const MOPIDY_GET_PLAYBACK_STATUS = 'MOPIDY_GET_PLAYBACK_STATUS';
 export const MOPIDY_RECEIVE_PLAYBACK_STATUS = 'MOPIDY_RECEIVE_PLAYBACK_STATUS';
 export const MOPIDY_GET_SHUFFLE_STATUS = 'MOPIDY_GET_SHUFFLE_STATUS';
@@ -28,12 +30,14 @@ export const {
   mopidyConnect: connect,
   mopidyGetAlbumArt: getAlbumArt,
   mopidyGetCurrentTrack: getCurrentTrack,
+  mopidyGetTlTracks: getTlTracks,
   mopidyGetPlaybackStatus: getPlaybackStatus,
   mopidyGetShuffleStatus: getShuffleStatus,
   mopidyGetRepeatStatus: getRepeatStatus,
   mopidyGetTrackPosition: getTrackPosition,
   mopidyReceiveAlbumArt: receiveAlbumArt,
   mopidyReceiveCurrentTrack: receiveCurrentTrack,
+  mopidyReceiveTlTracks: receiveTlTracks,
   mopidyReceivePlaybackStatus: receivePlaybackStatus,
   mopidyReceiveShuffleStatus: receiveShuffleStatus,
   mopidyReceiveRepeatStatus: receiveRepeatStatus,
@@ -51,12 +55,14 @@ export const {
 },
   MOPIDY_GET_ALBUM_ART,
   MOPIDY_GET_CURRENT_TRACK,
+  MOPIDY_GET_TL_TRACKS,
   MOPIDY_GET_PLAYBACK_STATUS,
   MOPIDY_GET_SHUFFLE_STATUS,
   MOPIDY_GET_REPEAT_STATUS,
   MOPIDY_GET_TRACK_POSITION,
   MOPIDY_RECEIVE_ALBUM_ART,
   MOPIDY_RECEIVE_CURRENT_TRACK,
+  MOPIDY_RECEIVE_TL_TRACKS,
   MOPIDY_RECEIVE_PLAYBACK_STATUS,
   MOPIDY_RECEIVE_SHUFFLE_STATUS,
   MOPIDY_RECEIVE_REPEAT_STATUS,

@@ -5,7 +5,7 @@ import * as MopidyActions from '../Mopidy/Actions'
 
 const mapStateToProps = (state) => {
   let artists = state.mopidy.getIn(['currentTrack', 'artists']);
-  let trackUri = state.mopidy.getIn(['currentTrack', 'uri'])
+  let trackUri = state.mopidy.getIn(['currentTrack', 'album', 'uri'])
   return {
     length: state.mopidy.getIn(['currentTrack', 'length']) || 0,
     position: state.mopidy.get('position') || 0,

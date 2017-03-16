@@ -7,23 +7,40 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const SongRow = (props) => (
+const msToMinAndSec = (ms: number) => {
+  if(ms === undefined){
+    return '0:00'
+  }
+  let x = Math.trunc(ms / 1000)
+  let seconds = x % 60
+  x = Math.trunc(x / 60)
+  let minutes = x % 60
+  return `${minutes}:${padZero(seconds,2)}`
+}
+
+const padZero = (num, size) => {
+  let s = num+"";
+  while (s.length < size) s = "0" + s;
+  return s;
+};
+
+const TrackRow = (props) => (
   <View style={styles.container}>
     <View>
       <View>
         <Text style={styles.title}>
-          {props.title}
+          {props.name}
         </Text>
       </View>
       <View>
         <Text style={styles.artistAlbum}>
-          {props.artist} - {props.album}
+          {props.artists.map(a => a.name).join(', ')} - {props.album.name}
         </Text>
       </View>
     </View>
     <View style={styles.lengthContainer}>
       <Text style={styles.length}>
-        {props.length}
+        {msToMinAndSec(props.length)}
       </Text>
     </View>
   </View>
@@ -52,4 +69,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SongRow;
+export default TrackRow;

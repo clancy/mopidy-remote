@@ -14,8 +14,8 @@ export const rehydrateEpic = action$ =>
 
 export const mapReceiveTrackEpic = (action$, store) =>
   action$.ofType(MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK)
-         .filter(action => action.payload && store.getState().mopidy.getIn(['image_index', action.payload.uri]) == undefined)
-         .map(action => MopidyActions.getAlbumArt([action.payload.uri]));
+         .filter(action => action.payload && store.getState().mopidy.getIn(['image_index', action.payload.album.uri]) == undefined)
+         .map(action => MopidyActions.getAlbumArt([action.payload.album.uri]));
 
 export const connectedEpic = action$ =>
  action$.ofType(MopidyActions.MOPIDY_CONNECTED)
@@ -25,6 +25,7 @@ export const getInitialStateEpic = action$ =>
   action$.ofType(MopidyActions.MOPIDY_GET_INITIAL_STATE)
          .switchMap(() => [
            MopidyActions.getCurrentTrack(),
+           MopidyActions.getTlTracks(),
            MopidyActions.getPlaybackStatus(),
            MopidyActions.getShuffleStatus(),
            MopidyActions.getRepeatStatus(),

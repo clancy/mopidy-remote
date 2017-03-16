@@ -3,7 +3,10 @@ import PlaylistView from './PlaylistView';
 import * as MopidyActions from '../Mopidy/Actions'
 
 const mapStateToProps = (state) => {
-  return {}
+  let trackList = state.mopidy.get('trackList');
+  return {
+    trackList: trackList ? trackList.toJSON() : []
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

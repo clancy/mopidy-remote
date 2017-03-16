@@ -61,6 +61,10 @@ const onMessage = (ws,store) => evt => {
         break;
     case "core.playback.get_time_position":
         store.dispatch(MopidyActions.receiveTrackPosition(data.result));
+        break;
+    case "core.tracklist.get_tl_tracks":
+        store.dispatch(MopidyActions.receiveTlTracks(data.result));
+        break;
   }
 }
 
@@ -101,6 +105,10 @@ const mopidyMiddleware = store => next => action => {
 
     case MopidyActions.MOPIDY_GET_CURRENT_TRACK:
       sendRpcJson(socket, "core.playback.get_current_track");
+      break;
+
+    case MopidyActions.MOPIDY_GET_TL_TRACKS:
+      sendRpcJson(socket, "core.tracklist.get_tl_tracks");
       break;
 
     case MopidyActions.MOPIDY_GET_PLAYBACK_STATUS:

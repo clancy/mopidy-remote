@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
+    "immutable": "^3.8.1",
     "react": "v16.0.0-alpha.3",
     "react-native": "v0.43-rc.2",
     "react-native-vector-icons": "^4.0.0",
