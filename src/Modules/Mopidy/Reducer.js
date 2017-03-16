@@ -5,7 +5,7 @@ const initialState = Map({
   hostname: null,
   port: null,
   connected: false,
-  currentTrack: null,
+  currentTlId: null,
   trackList: null,
   playbackStatus: null,
   shuffle: false,
@@ -25,8 +25,8 @@ export default function MopidyReducer(state = initialState, action) {
     case MopidyActions.MOPIDY_CONNECTED:
       return state.set('connected', true);
 
-    case MopidyActions.MOPIDY_RECEIVE_CURRENT_TRACK:
-      return state.set('currentTrack', Immutable.fromJS(action.payload));
+    case MopidyActions.MOPIDY_RECEIVE_CURRENT_TL_ID:
+      return state.set('currentTlId', action.payload);
 
     case MopidyActions.MOPIDY_RECEIVE_TL_TRACKS:
       return state.set('trackList', Immutable.fromJS(action.payload));

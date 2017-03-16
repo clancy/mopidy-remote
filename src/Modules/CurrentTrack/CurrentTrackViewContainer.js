@@ -4,16 +4,18 @@ import CurrentTrackView from './CurrentTrackView';
 import * as MopidyActions from '../Mopidy/Actions'
 
 const mapStateToProps = (state) => {
-  let artists = state.mopidy.getIn(['currentTrack', 'artists']);
-  let trackUri = state.mopidy.getIn(['currentTrack', 'album', 'uri'])
+  let currentTlId = state.mopidy.get('currentTlId');
+  let currentTrack = state.mopidy.get('trackList').find(tlTrack => tlTrack.get('tlid') === currentTlId);
+  let artists = currentTrack.getIn(['track', 'artists']);
+  let trackUri = currentTrack.getIn(['track', 'album', 'uri']);
   return {
-    length: state.mopidy.getIn(['currentTrack', 'length']) || 0,
+    length: currentTrack.getIn(['track', 'length']) || 0,
     position: state.mopidy.get('position') || 0,
     playing: state.mopidy.get('playbackStatus') === 'playing',
     shuffleEnabled: state.mopidy.get('shuffle'),
     repeatEnabled: state.mopidy.get('repeat'),
     inLibrary: false,
-    trackName: state.mopidy.getIn(['currentTrack', 'name']),
+    trackName: currentTrack.getIn(['track', 'name']),
     albumArtUri: state.mopidy.getIn(['image_index', trackUri]),
     artists: artists ? artists.toJSON() : []
   }

@@ -33,7 +33,7 @@ const onMessage = (ws,store) => evt => {
         store.dispatch(MopidyActions.receiveTrackPosition(data.time_position));
       break;
     case "track_playback_started":
-        store.dispatch(MopidyActions.receiveCurrentTrack(data.tl_track.track));
+        store.dispatch(MopidyActions.receiveCurrentTlId(data.tl_track.tlid));
         store.dispatch(MopidyActions.receiveTrackPosition(0));
       break;
     case "playback_state_changed":
@@ -44,11 +44,14 @@ const onMessage = (ws,store) => evt => {
     case "options_changed":
         store.dispatch(MopidyActions.getInitialState());
       break;
+    case "tracklist_changed":
+        store.dispatch(MopidyActions.getTlTracks());
+      break;
     case "core.library.get_images":
         store.dispatch(MopidyActions.receiveAlbumArt(data.result));
         break;
-    case "core.playback.get_current_track":
-        store.dispatch(MopidyActions.receiveCurrentTrack(data.result));
+    case "core.playback.get_current_tlid":
+        store.dispatch(MopidyActions.receiveCurrentTlId(data.result));
         break;
     case "core.playback.get_state":
         store.dispatch(MopidyActions.receivePlaybackStatus(data.result));
@@ -103,8 +106,8 @@ const mopidyMiddleware = store => next => action => {
       sendRpcJson(socket, "core.library.get_images", { uris: action.payload });
       break;
 
-    case MopidyActions.MOPIDY_GET_CURRENT_TRACK:
-      sendRpcJson(socket, "core.playback.get_current_track");
+    case MopidyActions.MOPIDY_GET_CURRENT_TL_ID:
+      sendRpcJson(socket, "core.playback.get_current_tlid");
       break;
 
     case MopidyActions.MOPIDY_GET_TL_TRACKS:
